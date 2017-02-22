@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+		<link href="Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" />
+
+		<link rel="stylesheet" href="Js/lib/bootstrap-3.3.5-dist/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="Js/lib/ace/css/ace.min.css" />
+
+		<script type="text/javascript" src="Js/lib/jquery-3.1.1.min.js"></script>
+		<script src="Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<script src="Js/lib/ace/js/ace.min.js"></script>
+</head>
+<body style="">
+
+		<script type="text/javascript">
+//			try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+
+//			var main_h = $(window).height();
+//			$('.nav-list').css('height',main_h+'px');
+		</script>
+		<!-- 这个就是左边的那个导航栏 -->
+		<ul class="nav nav-list" style="width:225px;">
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-desktop"></i>
+					<span class="menu-text"> Antd </span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+							基本
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="Demo/Antd/aButton.html" target="main">
+									<i class="icon-leaf"></i>
+									Button按钮
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aIcon.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Iconfont字体图标
+									<b class="arrow icon-angle-down"></b>
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aLayout.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Layout布局
+									<b class="arrow icon-angle-down"></b>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+
+					<li>
+						<a href="buttons.html" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+							表单
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="Demo/Antd/aCheckbox.html" target="main">
+									<i class="icon-leaf"></i>
+									Checkbox多选框
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aInputnumber.html" target="main">
+									<i class="icon-leaf"></i>
+									InputNumber数字输入框
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aRadio.html" target="main">
+									<i class="icon-leaf"></i>
+									Radio单选框
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aSwitch.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Switch开关
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aUpload.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Upload文件上传
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+							展示
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="Demo/Antd/aAlert.html" target="main">
+									<i class="icon-leaf"></i>
+									Alert警告提示
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aBadge.html" target="main">
+									<i class="icon-leaf"></i>
+									Badge徽标数
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aCollapse.html" target="main">
+									<i class="icon-leaf"></i>
+									Collapse折叠面板
+								</a>
+							</li>
+
+							<li>
+								<a href="Demo/Antd/aDropdown.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Dropdown下拉菜单
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aMessage.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Message全局提示
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aModal.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Modal对话框
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aNotification.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Notification通知提醒框
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aPopconfirm.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Popconfirm气泡确认框
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aPopover.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Popover气泡卡片
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aProgress.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Progress进度条
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aTable.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Table表格
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aTag.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Tag标签
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aSpin.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Spin加载动画
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aTimeline.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Timeline时间轴
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aTooltip.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Tooltip文字提示
+								</a>
+							</li>
+						</ul>
+
+					</li>
+
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+							导航
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="Demo/Antd/aBreadcrumd.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Breadcrumb面包屑
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aSteps.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									Steps步骤条
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+							其他
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li>
+								<a href="Demo/Antd/aAffix.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									固钉
+								</a>
+							</li>
+							<li>
+								<a href="Demo/Antd/aQueueAnim.html" target="main" class="dropdown-toggle">
+									<i class="icon-pencil"></i>
+									进场动画
+								</a>
+							</li>
+						</ul>
+					</li>
+
+				</ul>
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-list"></i>
+					<span class="menu-text"> BootStrap </span>
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="tables.html">
+							<i class="icon-double-angle-right"></i>
+							简单 &amp; 动态
+						</a>
+					</li>
+
+					<li>
+						<a href="jqgrid.html">
+							<i class="icon-double-angle-right"></i>
+							jqGrid plugin
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-edit"></i>
+					<span class="menu-text"> Echart </span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="form-elements.html">
+							<i class="icon-double-angle-right"></i>
+							表单组件
+						</a>
+					</li>
+
+					<li>
+						<a href="form-wizard.html">
+							<i class="icon-double-angle-right"></i>
+							向导提示 &amp; 验证
+						</a>
+					</li>
+
+					<li>
+						<a href="wysiwyg.html">
+							<i class="icon-double-angle-right"></i>
+							编辑器
+						</a>
+					</li>
+
+					<li>
+						<a href="dropzone.html">
+							<i class="icon-double-angle-right"></i>
+							文件上传
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li>
+				<a href="widgets.html">
+					<i class="icon-list-alt"></i>
+					<span class="menu-text"> Vue-Strap </span>
+				</a>
+			</li>
+
+			<li>
+				<a href="calendar.html">
+					<i class="icon-calendar"></i>
+
+					<span class="menu-text">
+						自主组件
+						<span class="badge badge-transparent tooltip-error" title="2&nbsp;Important&nbsp;Events">
+							<i class="icon-warning-sign red bigger-130"></i>
+						</span>
+					</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="#" class="dropdown-toggle">
+					<i class="icon-file-alt"></i>
+
+					<span class="menu-text">
+						其他
+						<span class="badge badge-primary ">5</span>
+					</span>
+
+					<b class="arrow icon-angle-down"></b>
+				</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="faq.html">
+							<i class="icon-double-angle-right"></i>
+							帮助
+						</a>
+					</li>
+
+					<li>
+						<a href="error-404.html">
+							<i class="icon-double-angle-right"></i>
+							404错误页面
+						</a>
+					</li>
+
+					<li>
+						<a href="error-500.html">
+							<i class="icon-double-angle-right"></i>
+							500错误页面
+						</a>
+					</li>
+
+					<li>
+						<a href="grid.html">
+							<i class="icon-double-angle-right"></i>
+							网格
+						</a>
+					</li>
+
+					<li>
+						<a href="blank.html">
+							<i class="icon-double-angle-right"></i>
+							空白页面
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+</body>
+</html>

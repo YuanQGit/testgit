@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pie</title>
+
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="pie">
+    <so:piechart
+            :id="piechart"
+            :style="width:500px;height:500px"
+            :mainTitle="主标题"
+            :subHead="副标题"
+            :showTool="true"
+            :showLabel="false"
+            :data="data">
+    </so:piechart>
+</div>
+<script>
+    var data={
+        legend:["中国","美国","欧盟","俄罗斯","小日本"],
+        dataArea:[10000,8000,5000,3000,250]
+    }
+  /*  soUIDev.bind({
+        scope:"pie",
+        model:"so:piechart"
+    })*/
+</script>
+</body>
+</html>

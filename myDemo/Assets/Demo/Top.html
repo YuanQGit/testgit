@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top组件</title>
+    <meta charset="utf-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.css">
+    <link rel="stylesheet" href="../Js/lib/jstree/css/jstree.min.css">
+
+    <script src="../js/lib/vue.js"></script>
+    <script src="../js/lib/vue-resource.min.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/lib/jstree/js/jstree.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+</head>
+<body>
+        <so:top :id="top1" :data="data" :title="title"
+                :style="style" :hidden="hidden" :class=""
+                :showRefresh="true"
+                :onRefresh="refresh" :onTdClick="tdClick">
+        </so:top>
+<style>
+    body{
+        background-color: #F3F3F4;
+    }
+</style>
+
+<script>
+
+    function getdata(count) {
+        var list;
+        $.ajax({
+            url: '../../Mock/top.json',
+            type: "get",
+            dataType: "json",
+            async: false,
+            success: function(data) {
+                data.records = data.records.slice(0,count);
+                list=data;
+                //console.log(list)
+            },
+            error: function() {
+                alert("error");
+            }
+        });
+        return list;
+    }
+
+    var data = getdata();
+    var hidden=false;
+    var style="width:423px;";
+    var title="最新成果展示组件";
+    //某一项的点击事件
+    var tdClick=function (url) {
+        alert(url.detail);
+    }
+
+    //更新操作
+    var refresh=function () {
+        alert("您现在执行的是更新操作...")
+        this.data=getdata();
+        return this.data;
+    }
+</script>
+</body>
+</html>

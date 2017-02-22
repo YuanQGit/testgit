@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>数据展示功能</title>
+    <meta charset="utf-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.css">
+    <link rel="stylesheet" href="../Js/lib/jstree/css/jstree.min.css">
+
+    <script src="../js/lib/vue.js"></script>
+    <script src="../js/lib/vue-resource.min.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/lib/jstree/js/jstree.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+    <!--<script src="../js/soUI.js"></script>-->
+</head>
+<style>
+    body {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <div id="detail">
+        <so:detail :data="data" :type="type" :totaltitle="totaltitle"
+                       :count="count" :onloadmorelist="onLoadMore"
+                       :onitemclick="onItemClick" :onSelect="onSelect"
+                       :onTabClick="onTabClick" :onClick="onClick">
+        </so:detail>
+    </div>
+
+    <script>
+        function getdata(count) {
+            var list;
+            $.ajax({
+                url: '../../Mock/detailPage.json',
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function(data) {
+                    if (data.showinglist.subtitle) {
+                        for (var i = 0; i < data.showinglist.subtitle.length; i++) {
+                            if (data.showinglist.subtitle[i].isLoadMore == "true") {
+                                data.showinglist.subtitle[i].content = data.showinglist.subtitle[i].content.slice(0, count);
+                            }
+                        }
+                    }
+                    list = data;
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+            return list;
+        }
+
+        var type = "table";
+        var count = 5;
+        var totaltitle = "相关目标";
+        var data = getdata(5);
+
+
+
+        //当数据为text的时候的回调函数
+        var onLoadMore = function(index) {
+            var result = getdata().showinglist;
+            this.data.showinglist.subtitle[index].content = result.subtitle[index].content;
+            return this.data;
+        }
+        var onItemClick = function(result) {
+            alert("当前点击的项是：" + result);
+        }
+
+
+        //当数据为tree的时候的回调函数
+        var onGetData = function() {
+            return getdata().rightareatext.content;
+        }
+
+        var onSelect = function(node) {
+            var id = node.id;
+            var text = node.text;
+            var parent = node.parent;
+            var value = node.original.value;
+            alert("节点id:" + id + "\n节点text:" + text + "\n父节点id:" + parent + "\n节点value:" + value);
+        }
+
+        var onTabClick=function (title) {
+            console.log(title);
+        };
+
+        var onClick=function (title) {
+            console.log(title);
+        }
+
+        var vm = soUIDev.bind({
+            scope: "detail",
+            model: "so:detail",
+        });
+    </script>
+</body>
+
+</html>

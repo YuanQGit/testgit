@@ -1,0 +1,35 @@
+{
+    "data": [
+        { "id": "G1", "key": "", "value": "../Img/3.png", "type": "img" },
+        { "id": "G2", "key": "目标", "value": "珠江口盆地", "type": "text" },
+        { "id": "G3", "key": "来源", "value": "cnki", "type": "text" },
+        { "id": "G4", "key": "地区", "value": "中国南海", "type": "text" },
+        { "id": "G5", "key": "语种", "value": "中文", "type": "text" },
+        { "id": "G6", "key": "单位", "value": "中国石化石油勘探开发研究院", "type": "text" },
+        { "id": "G7", "key": "作者", "value": "杜家元", "type": "text" },
+        { "id": "G8", "key": "时间", "value": "2014/6/20", "type": "text" },
+        { "id": "G9", "key": "格式", "value": "pdf", "type": "text" },
+        { "id": "G10", "key": "关键词", "value": "盆地圈闭综合研究报告 石油地质特征/圈闭", "type": "text" }
+    ],
+    "layouts": [
+        [{ "id": "G1", "css": "", "rowspan": 3, "colspan": "2" },
+            { "id": "G2", "css": "", "rowspan": 1, "colspan": "1" }
+        ],
+        [
+            { "id": "G3", "css": "", "rowspan": 1, "colspan": "1" }
+        ],
+        [{ "id": "G4", "css": "", "rowspan": 1, "colspan": "1" }],
+        [
+            { "id": "G5", "css": "", "rowspan": 1, "colspan": "1" },
+            { "id": "G6", "css": "", "rowspan": 1, "colspan": "1" }
+        ],
+        [
+            { "id": "G7", "css": "", "rowspan": 1, "colspan": "1" },
+            { "id": "G8", "css": "", "rowspan": 1, "colspan": "1" }
+        ],
+        [
+            { "id": "G9", "css": "", "rowspan": 1, "colspan": "1" },
+            { "id": "G10", "css": "", "rowspan": 1, "colspan": "1" }
+        ]
+    ]
+}

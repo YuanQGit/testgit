@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>字体图标</title>
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+    <style>
+        ul.anticons-list li{
+            float: left;
+            margin: 5px 5px 5px 0;
+            width: 155px;
+            text-align: center;
+            list-style: none;
+            cursor: pointer;
+            height: 110px;
+            color: #5C6B77;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        ul.anticons-list li:hover {
+            background-color: #4BB8FF;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        .anticon-class {
+            display: block;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .anticon {
+            font-size: 26px;
+            margin: 12px 0 16px;
+        }
+
+        .anticon {
+            position: relative;
+            display: inline-block;
+            font-style: normal;
+            vertical-align: baseline;
+            text-align: center;
+            text-transform: none;
+            text-rendering: auto;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sooil" class="markdown view">
+        <h1 id="alert">Iconfont</h1>
+        <hr>
+        <p>有含义的矢量图形，每一个图标打倒一个敌人。</p><br>
+        <h1>图标的命名规范</h1><br>
+        我们为每个图标赋予了语义化的命名。只需在 <v-icon></v-icon> 标签内，制定对应的 type 属性即可。<br>
+        不同 type 命名规则如下:<br>
+        <ul>
+            <li>实心和描线图标保持同名，用 -o 来区分，比如 question-circle(实心) 和 question-circle-o(描线)；</li>
+            <li>命名顺序：[icon名]-[描线与否]-[方向]。</li>
+        </ul>
+        <h1>实现原理</h1><br>
+        所有的 Icon 标签最终会渲染为<br>
+        <div class="code-box-word" style="background-color: #F7F7F7">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;i class=&quot;anticon anticon-${type}&quot;&gt;&lt;/i&gt;
+                    </code>
+                </pre>
+        </div>
+        <h1>如何使用</h1><br>
+        使用 &lt;v-icon&gt; 标签申明组件，设置对应的 type 设置需要渲染的图标，示例代码如下:<br>
+        <div class="code-box-word" style="background-color: #F7F7F7">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;v-icon type=&quot;link&quot; &gt;&lt;/v-icon&gt;
+                    </code>
+                </pre>
+        </div>
+
+        <h1>图标列表</h1>
+        <h3>一. 方向性图标</h3>
+        <ul class="anticons-list clearfix">
+            <li>
+                <i class="anticon"><so:a_icon type="step-backward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">step-backward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="step-forward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">step-forward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="fast-backward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">fast-backward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="fast-forward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">fast-forward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="shrink"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">shrink</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="arrow-salt"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">arrow-salt</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">down</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-o-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-o-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-o-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-o-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-o-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-o-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-o-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-o-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="double-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">double-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="double-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">double-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="verticle-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">verticle-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="verticle-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">verticle-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="forward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">forward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="backward"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">backward</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="rollback"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">rollback</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="retweet"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">retweet</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="swap"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">swap</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="swap-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">swap-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="swap-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">swap-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="arrow-right"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">arrow-right</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="arrow-up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">arrow-up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="arrow-down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">arrow-down</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="arrow-left"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">arrow-left</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="play-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">play-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="play-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">play-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-down</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-o-up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-o-up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="circle-o-down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">circle-o-down</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-o-up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-o-up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-o-down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-o-down</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-up"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-up</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="caret-circle-down"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">caret-circle-down</span>
+            </li>
+        </ul>
+
+        <h3>二. 提示建议性图标</h3>
+        <ul class="anticons-list clearfix">
+            <li>
+                <i class="anticon"><so:a_icon type="question"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">question</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="question-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">question-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="question-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">question-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="plus"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">plus</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="plus-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">plus-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="plus-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">plus-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="pause"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">pause</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="pause-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">pause-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="pause-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">pause-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="minus"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">minus</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="minus-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">minus-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="minus-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">minus-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="info"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">info</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="info-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">info-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="info-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">info-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="exclamation"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">exclamation</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="exclamation-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">exclamation-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="exclamation-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">exclamation-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cross"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cross</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cross-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cross-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cross-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cross-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="check"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">check</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="check-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">check-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="check-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">check-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="clock-circle-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">clock-circle-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="clock-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">clock-circle</span>
+            </li>
+        </ul>
+
+        <h3>三. 网站通用图标</h3>
+        <ul class="anticons-list clearfix">
+            <li>
+                <i class="anticon"><so:a_icon type="lock"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">lock</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="unlock"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">unlock</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="android"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">android</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="apple"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">apple</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="area-chart"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">area-chart</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="bar-chart"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">bar-chart</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="bars"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">bars</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="book"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">book</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="calendar"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">calendar</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud-download"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud-download</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="code"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">code</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="copy"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">copy</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="credit-card"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">credit-card</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="delete"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">delete</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="deskpot"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">deskpot</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="download-line"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">download-line</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="edit"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">edit</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="ellipsis"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">ellipsis</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="file"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">file</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="file-text"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">file-text</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="folder"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">folder</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="folder-open">folder-open</so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc=""></span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="github"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">github</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="hdd"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">hdd</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="frown"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">frown</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="meh">frown</so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">meh</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="inbox"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">inbox</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="laptop"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">laptop</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="appstore"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">appstore</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="line-chart"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">line-chart</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="link"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">link</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="logout"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">logout</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="mail"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">mail</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="menu-fold"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">menu-fold</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="menu-unfold"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">menu-unfold</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="mobile"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">mobile</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="notification"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">notification</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="paper-clip"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">paper-clip</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="picture"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">picture</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="pie-chart"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">pie-chart</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="poweroff"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">poweroff</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="reload"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">reload</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="search"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">search</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="setting"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">setting</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="share-alt"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">share-alt</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="shopping-cart"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">shopping-cart</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="smile"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">smile</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="tablet"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">tablet</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="tag"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">tag</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="tags"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">tags</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="to-top"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">to-top</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="upload"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">upload</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="user"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">user</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="video-camera"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">video-camera</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="windows"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">windows</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="ie"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">ie</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="chrome"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">chrome</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="home"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">home</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="loading"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">loading</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="smile-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">smile-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="meh-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">meh-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="frown-circle"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">frown-circle</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="tags-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">tags-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="tag-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">tag-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud-upload-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud-upload-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud-download-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud-download-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud-upload"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud-upload</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="cloud-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">cloud-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="star-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">star-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="star"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">star</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="environment"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">environment</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="environment-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">environment-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="eye"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">eye</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="eye-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">eye-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="camera"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">camera</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="camera-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">camera-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="aliwangwang"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">aliwangwang</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="aliwangwang-o"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">aliwangwang-o</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="save"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">save</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="team"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">team</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="solution"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">solution</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="phone"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">phone</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="filter"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">filter</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="exception"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">exception</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="export"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">export</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="customerservice"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">customerservice</span>
+            </li>
+            <li>
+                <i class="anticon"><so:a_icon type="qrcode"></so:a_icon></i>
+                <span class="anticon-class" _v-a8c514bc="">qrcode</span>
+            </li>
+            
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        soUIDev.bind({
+            scope: 'sooil',
+            model:'so:a_icon'
+        });
+    </script>
+</body>
+
+</html>

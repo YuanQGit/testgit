@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swich开关</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Switch</h1>
+    <hr>
+    <p>开关选择器。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>需要表示开关状态/两种状态之间的切换时；</li>
+        <li>和 checkbox的区别是，切换 switch 会直接触发状态改变，而 checkbox 一般用于状态标记，需要和提交操作配合。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>最简单的用法</h3>
+        <br/>
+        <so:a_switch :on-change="_change"></so:a_switch>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_switch :on-change=&quot;_change&quot;&gt;&lt;/so:a_switch&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>不可用</h3>
+        <br/>
+        <so:a_switch :disabled="disabled"></so:a_switch>
+        <br>
+        <br>
+        <so:a_button :type="'primary'" :onclick="_toogle">Toggle disabled</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_switch :disabled=&quot;disabled&quot;&gt;&lt;/so:a_switch&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_toogle&quot;&gt;Toggle disabled&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>带文字和图标</h3>
+        <br/>
+        <so:a_switch :disabled="disabled">
+            <span slot="checkedChildren">开</span>
+            <span slot="unCheckedChildren">关</span>
+        </so:a_switch>
+        <so:a_switch :disabled="disabled">
+            <span slot="checkedChildren">
+                <i class="anticon anticon-check"></i>
+            </span>
+            <span slot="unCheckedChildren">
+                <i class="anticon anticon-cross"></i>
+            </span>
+        </so:a_switch>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_switch :disabled=&quot;disabled&quot;&gt;
+    &lt;span slot=&quot;checkedChildren&quot;&gt;开&lt;/span&gt;
+    &lt;span slot=&quot;unCheckedChildren&quot;&gt;关&lt;/span&gt;
+&lt;/so:a_switch&gt;
+&lt;so:a_switch :disabled=&quot;disabled&quot;&gt;
+          &lt;span slot=&quot;checkedChildren&quot;&gt;
+            &lt;i class=&quot;anticon anticon-check&quot;&gt;&lt;/i&gt;
+          &lt;/span&gt;
+    &lt;span slot=&quot;unCheckedChildren&quot;&gt;
+            &lt;i class=&quot;anticon anticon-cross&quot;&gt;&lt;/i&gt;
+          &lt;/span&gt;
+&lt;/so:a_switch&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>checked</td>
+            <td>指定当前是否选中</td>
+            <td>boolean</td>
+            <td></td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>defaultChecked</td>
+            <td>初始是否选中</td>
+            <td>boolean</td>
+            <td></td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>onChange</td>
+            <td>变化时回调函数</td>
+            <td>Function(checked:boolean)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>slot::checkedChildren</td>
+            <td>选中时的内容</td>
+            <td>slot node</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>slot::unCheckedChildren</td>
+            <td>非选中时的内容</td>
+            <td>slot node</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    var disabled=false;
+    var _toogle=function () {
+        this.disabled=!this.disabled;
+    }
+    var _change=function () {
+        alert(1);
+    }
+    var vm=soUIDev.bind({
+        scope:'sooil',
+       model:['so:a_button','so:a_switch']
+    })
+</script>
+</body>
+</html>

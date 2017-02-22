@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>布局</title>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/vue.js"></script>
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/soUIDev.js"></script>
+
+</head>
+
+<body id="body">
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Layout 布局</h1>
+    <hr>
+    <p>24 栅格系统。</p>
+    <h2>设计理念</h2>
+    <ul>
+        <li>在多数业务情况下，Ant Design需要在设计区域内解决大量信息收纳的问题，因此在
+            12栅格系统的基础上，我们将整个设计建议区域按照24等分的原则进行划分。</li>
+        <li>划分之后的信息区块我们称之为“盒子”。建议横向排列的盒子数量最多四个，最少
+            一个。“盒子”在整个屏幕上占比见上图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证
+            视觉层面的舒适感。</li>
+    </ul>
+    <h2>概述</h2>
+    布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页
+    面的每个区域能够稳健地排布起来。下面简单介绍一下它的工作原理：<br>
+    <ul>
+        <li>通过row在水平方向建立一组column（简写col）</li>
+        <li>你的内容应当放置于col内，并且，只有col可以作为row的直接元素</li>
+        <li>栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽d的列可以使
+            用.col-8来创建</li>
+        <li>如果一个row中的col总和超过24，那么多余的col会作为一个整体另起一行排列</li>
+    </ul>
+    <h2>Flex 布局</h2>
+    <ul>
+        <li>我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、
+            居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的
+            方式。同时，支持使用 order 来定义元素的排列顺序。</li>
+        <li>Flex 布局是基于 24 栅格来定义每一个“盒子”的宽度，但排版则不拘泥于栅格。
+        </li>
+    </ul>
+    <div class="code-box">
+        <h3>基础布局</h3>
+        <br/>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="12">.col-12</so:a_layoutcol>
+            <so:a_layoutcol span="12">.col-12</so:a_layoutcol>
+        </so:a_layoutrow>
+        <so:a_layoutrow class="testRowClassName">
+            <so:a_layoutcol span="8">.col-8</so:a_layoutcol>
+            <so:a_layoutcol span="8">.col-8</so:a_layoutcol>
+            <so:a_layoutcol span="8" class="testColClassName">.col-8</so:a_layoutcol>
+        </so:a_layoutrow>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="6">.col-6</so:a_layoutcol>
+            <so:a_layoutcol span="6">.col-6</so:a_layoutcol>
+            <so:a_layoutcol span="6">.col-6</so:a_layoutcol>
+            <so:a_layoutcol span="6">.col-6</so:a_layoutcol>
+        </so:a_layoutrow>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;12&quot;&gt;.col-12&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;12&quot;&gt;.col-12&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;so:a_layoutrow class=&quot;testRowClassName&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;8&quot;&gt;.col-8&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;8&quot;&gt;.col-8&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;8&quot; class=&quot;testColClassName&quot;&gt;.col-
+8&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot;&gt;.col-6&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot;&gt;.col-6&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot;&gt;.col-6&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot;&gt;.col-6&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>左右偏移</h3>
+        <br/>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="8">.col-8</so:a_layoutcol>
+            <so:a_layoutcol span="8" offset="8">.col-8</so:a_layoutcol>
+        </so:a_layoutrow>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="6" offset="6">.col-6 .col-offset-6</so:a_layoutcol>
+            <so:a_layoutcol span="6" offset="6">.col-6 .col-offset-6</so:a_layoutcol>
+        </so:a_layoutrow>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="12" offset="6">.col-12 .col-offset-6</so:a_layoutcol>
+        </so:a_layoutrow>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;8&quot;&gt;.col-8&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;8&quot; offset=&quot;8&quot;&gt;.col-
+8&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; offset=&quot;6&quot;&gt;.col-6 .col-offset-
+6&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; offset=&quot;6&quot;&gt;.col-6 .col-offset-
+6&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;12&quot; offset=&quot;6&quot;&gt;.col-12 .col-offset-
+6&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>布局排序</h3>
+        <br/>
+        <so:a_layoutrow>
+            <so:a_layoutcol span="18" push="6">.col-18 .col-push-6</so:a_layoutcol>
+            <so:a_layoutcol span="6" pull="18">.col-6 .col-pull-18</so:a_layoutcol>
+        </so:a_layoutrow>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_layoutrow&gt;
+    &lt;so:a_layoutcol span=&quot;18&quot; push=&quot;6&quot;&gt;.col-18 .col-push-
+6&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; pull=&quot;18&quot;&gt;.col-6 .col-pull-
+18&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>Flex布局</h3>
+        <br/>
+        <p>子元素居左排列</p>
+        <so:a_layoutrow type="flex" justify="start">
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>子元素居中排列</p>
+        <so:a_layoutrow type="flex" justify="center">
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>子元素居右排列</p>
+        <so:a_layoutrow type="flex" justify="end">
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>子元素等宽排列</p>
+        <so:a_layoutrow type="flex" justify="space-between">
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>子元素分散对齐</p>
+        <so:a_layoutrow type="flex" justify="space-around">
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+            <so:a_layoutcol span="4">.col-4</so:a_layoutcol>
+        </so:a_layoutrow>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;p&gt;子元素居左排列&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;start&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;子元素居中排列&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;center&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;子元素居右排列&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;end&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;子元素等宽排列&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;space-between&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;子元素分散对齐&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;space-around&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;.col-4&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <br>
+        <h3>Flex对齐</h3>
+        <p>顶部对齐</p>
+        <so:a_layoutrow type="flex" justify="center" align="top">
+            <so:a_layoutcol span="4"><p style="height: 100px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 50px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 120px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 80px">.col-
+                4</p></so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>居中对齐</p>
+        <so:a_layoutrow type="flex" justify="space-around" align="middle">
+            <so:a_layoutcol span="4"><p style="height: 100px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 50px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 120px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 80px">.col-
+                4</p></so:a_layoutcol>
+        </so:a_layoutrow>
+        <p>底部对齐</p>
+        <so:a_layoutrow type="flex" justify="space-between" align="bottom">
+            <so:a_layoutcol span="4"><p style="height: 100px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 50px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 120px">.col-
+                4</p></so:a_layoutcol>
+            <so:a_layoutcol span="4"><p style="height: 80px">.col-
+                4</p></so:a_layoutcol>
+        </so:a_layoutrow>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;p&gt;顶部对齐&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;center&quot;
+align=&quot;top&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+100px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 50px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+120px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 80px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;居中对齐&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;space-around&quot;
+align=&quot;middle&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+100px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 50px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+120px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 80px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+&lt;p&gt;底部对齐&lt;/p&gt;
+&lt;so:a_layoutrow type=&quot;flex&quot; justify=&quot;space-between&quot;
+align=&quot;bottom&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+100px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 50px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height:
+120px&quot;&gt;.col-4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;4&quot;&gt;&lt;p style=&quot;height: 80px&quot;&gt;.col-
+4&lt;/p&gt;&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>Flex排序</h3>
+        <br/>
+        <so:a_layoutrow  type="flex">
+            <so:a_layoutcol span="6" order="4">1 col-order-4</so:a_layoutcol>
+            <so:a_layoutcol span="6" order="3">2 col-order-3</so:a_layoutcol>
+            <so:a_layoutcol span="6" order="2">3 col-order-2</so:a_layoutcol>
+            <so:a_layoutcol span="6" order="1">4 col-order-1</so:a_layoutcol>
+        </so:a_layoutrow >
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_layoutrow  type=&quot;flex&quot;&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; order=&quot;4&quot;&gt;1 col-order-
+4&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; order=&quot;3&quot;&gt;2 col-order-
+3&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; order=&quot;2&quot;&gt;3 col-order-
+2&lt;/so:a_layoutcol&gt;
+    &lt;so:a_layoutcol span=&quot;6&quot; order=&quot;1&quot;&gt;4 col-order-
+1&lt;/so:a_layoutcol&gt;
+&lt;/so:a_layoutrow &gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+    soUIDev.bind({
+        //绑定在某个元素的域中，这个很重要：这样可以限定模块的区域不会对其他地方造成影
+    scope: 'sooil',
+            model:['so:a_layoutrow','so:a_layoutcol']
+    });
+</script>
+</body>
+
+</html>

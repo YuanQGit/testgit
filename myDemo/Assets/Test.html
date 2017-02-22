@@ -1,0 +1,60 @@
+
+<html>
+<head>
+<title>通过鼠标滚轮放大缩小图片</title>
+<style type="text/css">
+<!--
+.style1 {
+  color: #FF0000;
+  font-size: 16px;
+}
+-->
+</style>
+</head>
+<script language="javascript">
+function bigimg(i)
+{
+  var zoom = parseInt(i.style.zoom,10)||100;
+  zoom += event.wheelDelta / 12;
+  if(zoom > 0 )
+  i.style.zoom=zoom+'%';
+  return false;
+}
+
+function blowup()
+{
+  var height = images1.height;
+  var width = images1.width;
+  if ((height <= height * 2)||(width <= width * 2))
+  {
+    images1.height = images1.height + 20;
+    images1.width = images1.width + 20;
+  }
+}
+function reduce()
+{
+  if ((images1.width > 100)||(images1.height > 100))
+  {
+    images1.height = images1.height - 20;
+    images1.width = images1.width - 20;
+  }
+}
+</script>
+<body>
+<table width="100%">
+  <tr>
+    <td><span class="style1">请滚动鼠标滚轮</span></td>
+  </tr>
+</table>
+<p align="center">
+  <input type="button" value="放大" onclick="blowup()">
+  <input type="button" value="缩小" onclick="reduce()">
+</p>
+<img src="./img/2.jpg" width="461" height="277" border="1" id="images1" onmousewheel="return bigimg(this)">
+</a>
+</body>
+</html>
+
+
+
+

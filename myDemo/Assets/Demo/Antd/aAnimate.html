@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="animate">
+    <so:a_button :type="'primary'"  :onclick="onclick"><span>{{showtext}}</span></so:a_button>
+    <so:a_animate :show="show" :transition-name="'fade'">
+        <div style="margin-top: 20px; width: 200px; height: 200px; background-color: red"></div>
+    </so:a_animate>
+</div>
+<script>
+    var show=true;
+    var showtext='入场';
+    var onclick=function () {
+        this.show=!this.show;
+        if(this.show==true){
+            vm.showtext="退场"
+        }else {
+            vm.showtext="入场"
+        }
+    }
+    var vm=soUIDev.bind({
+        scope:'animate',
+        model:['so:a_button','so:a_animate'],
+        data:{
+            showtext:'入场'
+        }
+    })
+</script>
+</body>
+</html>

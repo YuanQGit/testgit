@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>富文本显示</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+    <script src="../Js/lib/vue-2.0.js"></script>
+</head>
+<body>
+<P>富文本显示框</P>
+    <div id="display">
+        <so:richtext
+                url="https://www.baidu.com"></so:richtext>
+    </div>
+<script type="text/javascript">
+
+//    var vm = new Vue({
+//        el: '#test',
+//        data: {
+//            url:"https://www.baidu.com",
+//        },
+//        components:{
+//            "mycoment":soUIDev.richtext
+//        }
+//    });
+    soUIDev.bind({
+        scope:"display",
+        model:"so:richtext"
+    });
+</script>
+</body>
+</html>

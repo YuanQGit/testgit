@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>固钉</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Affix</h1>
+    <hr>
+    <p>将页面元素钉在可视范围。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧面菜单和按钮组合。</li>
+        <li>页面可视范围过小时，慎用次功能以免遮挡页面内容。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:a_affix>
+            <so:a_button :type="'primary'">固定在顶部</so:a_button>
+        </so:a_affix>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+                     &lt;so:a_affix&gt;
+                        &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot;&gt;固定在顶部&lt;/so:a_button&gt;
+                    &lt;/so:a_affix&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>偏移</h3>
+        <br/>
+        <so:a_affix :offset="200">
+            <so:a_button :type="'primary'">固定在距离顶部 200px 的位置</so:a_button>
+        </so:a_affix>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+                         &lt;so:a_affix :offset=&quot;200&quot;&gt;
+                            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot;&gt;固定在距离顶部 200px 的位置&lt;/so:a_button&gt;
+                        &lt;/so:a_affix&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>成员</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>offset</td>
+            <td>达到指定偏移量后触发</td>
+            <td>Number</td>
+            <td>0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+    <script>
+    soUIDev.bind({
+        scope:'sooil',
+        model:['so:a_affix','so:a_button']
+    })
+</script>
+</body>
+</html>

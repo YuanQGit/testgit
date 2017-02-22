@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格集合</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.min.css">
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/GtSubmit.js"></script>
+
+    <style>
+        .dataSetClass {
+            background-color: cornflowerblue
+        }
+    </style>
+</head>
+
+<body>
+    <h3>表格集合</h3>
+
+    <br>
+    <p>用例3：id,data</p>
+    <p>预期结果：多页显示，排序（id,name）,模板，多表格</p>
+    <p>实际结果：可显示，可排序，可模板</p>
+    <so:dataset :id="dataSet3" :data="data3"></so:dataset>
+
+    <br>
+    <p>用例2：id,data</p>
+    <p>预期结果：一页显示，排序（id,name）,无模板,单表格</p>
+    <p>实际结果：可显示，可排序 </p>
+    <so:dataset :id="dataSet2" :data="data2"></so:dataset>
+
+    <br>
+    <p>用例1：id,data,class,style,hidden</p>
+    <button onclick="hide1()">隐藏</button><br>
+    <p>预期结果：一页显示，id列隐藏，不排序，无模板</p>
+    <p>实际结果：可显示，可隐藏</p>
+    <so:dataset :id="dataSet1" :data="data1" :class="dataSetClass" :style="width: 800px" :hidden="hidden1"></so:dataset>
+
+    <br>
+    <p>用例0：id </p>
+    <p>预期结果：组件无报错</p>
+    <p>实际结果：组件无报错</p>
+    <so:dataset :id="dataSet0"></so:dataset>
+
+    <script>
+        // first define all parameters & pay attention to its define order
+        var data3, data2, data1, hidden1 = false,
+            url3 = "../../Mock/dataset/dataset3.json",
+            url2 = "../../Mock/dataset/dataset2.json",
+            url1 = "../../Mock/dataset/dataset1.json"
+
+        //set data
+        function event1() {
+            $.ajax({
+                url: url1,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("dataSet1", "data1", json)
+                }
+            })
+        }
+        event1()
+
+        function event2() {
+            $.ajax({
+                url: url2,
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function(json) {
+                    data2 = json
+                }
+            })
+        }
+        event2()
+
+        function event3() {
+            $.ajax({
+                url: url3,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("dataSet3", "data3", json)
+                }
+            })
+        }
+        event3()
+
+        //event
+        var hide1 = function() {
+            soUIDev.setDataById("dataSet1", "hidden1", true)
+        }
+    </script>
+</body>
+
+</html>

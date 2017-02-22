@@ -1,0 +1,369 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>树</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="../Js/lib/jstree/css/jstree.min.css">-->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!--<script src="../Js/lib/jstree/js/jstree.min.js"></script>-->
+    <script src="../js/tree.min.js"></script>
+
+    <style>
+        .treeClass {
+            background-color: cadetblue
+        }
+    </style>
+</head>
+
+<body>
+    <h3>树</h3>
+
+    <br>
+    <p>用例9-10：id,data,onLoaded,onNodeSelected</p>
+    <p>预期结果：异步加载树,树9联动树10,并触发相应事件</p>
+    <p>实际结果：异步加载树9数据，树9, 节点“盆地/亚一级构造单元”联动切换显示隐藏树10</p>
+    <p>树10</p>
+    <so:tree :id="tree10" :data="data10" :onLoaded="loaded10" :onNodeSelected="nodeSelected10"></so:tree>
+    <p>树9</p>
+    <so:tree :id="tree9" :data="data9" :showCheckbox="true" :onLoaded="loaded9" :onNodeSelected="nodeSelected9"></so:tree>
+
+    <br>
+    <p>用例7-8：id,data,onLoaded,onNodeSelected</p>
+    <p>预期结果：异步加载树,树7联动树8,并触发相应事件</p>
+    <p>实际结果：异步加载树7数据，树7节点“盆地/亚一级构造单元”联动树8获取新数据</p>
+    <p>树8</p>
+    <so:tree :id="tree8" :data="data8" :onLoaded="loaded8" :onNodeSelected="nodeSelected8"></so:tree>
+    <p>树7</p>
+    <so:tree :id="tree7" :data="data7" :onLoaded="loaded7" :onNodeSelected="nodeSelected7"></so:tree>
+
+    <br>
+    <p>用例6：id,data,onLoaded,onNodeSelected</p>
+    <p>预期结果：异步加载树</p>
+    <p>实际结果：异步</p>
+    <so:tree :id="tree6" :data="data6" :onLoaded="loaded6" :onNodeSelected="nodeSelected6"></so:tree>
+
+    <br>
+    <p>用例5：id,data,showCheckbox,onLoaded,onNodeSelected</p>
+    <button onclick="getSelectsId()">获取选中的id</button>
+    <p>预期结果：出现相应的事件</p>
+    <p>实际结果：console.log() alert()</p>
+    <so:tree :id="tree5" :data="data5" :showCheckbox="true" :onLoaded="loaded5" :onNodeSelected="nodeSelected5"></so:tree>
+
+    <br>
+    <p>用例4：id,data,enableEdit,onAdd,onUpdate,onDelete,onNodeSelected</p>
+    <p>预期结果：树编辑功能 </p>
+    <p>实际结果：</p>
+    <so:tree :id="tree4" :data="data4" :enableEdit="true" :onAdd="add4" :onUpdate="update4" :onDelete="delete4" :onNodeSelected="nodeSelected4"></so:tree>
+
+    <br>
+    <p>用例3：id,data,dataset,onLoaded,onNodeSelected</p>
+    <p>预期结果：出现相应的事件</p>
+    <p>实际结果：console.log() alert()</p>
+    <so:tree :id="tree3" :data="data3" :data-key1="value1" :onLoaded="loaded3" :onNodeSelected="nodeSelected3"></so:tree>
+
+    <br>
+    <p>用例2：id,data,class,style,hidden</p>
+    <button onclick="hide2()">隐藏</button><br>
+    <p>预期结果：class,style,hidden 属性值可用</p>
+    <p>实际结果：可用</p>
+    <so:tree :id="tree2" :data="data2" :class="treeClass" :style="width: 300px" :hidden="hidden2"></so:tree>
+
+    <br>
+    <p>用例1：id,data</p>
+    <p>预期结果：同步加载树，数据模型不正确的容错处理</p>
+    <p>实际结果：同步</p>
+    <so:tree :id="tree1" :data="data1"></so:tree>
+
+    <br>
+    <p>用例0：id </p>
+    <p>预期结果：组件无报错</p>
+    <p>实际结果：组件无报错</p>
+    <so:tree :id="tree0"></so:tree>
+
+    <script>
+        // first define all parameters & pay attention to its define order
+        var data10, data9, data8, data7, data6, data5, data4, data3, data2, hidden2 = false,
+            data1,
+            url6 = "../../Mock/tree/tree6.json",
+            url5 = "../../Mock/tree/tree5.json",
+            url4 = "../../Mock/tree/tree4.json",
+            url4_1 = "../../Mock/tree/tree4.json",
+            url3 = "../../Mock/tree/tree3.json",
+            url2 = "../../Mock/tree/tree2.json",
+            url1 = "../../Mock/tree/tree1.json",
+            url7 = "../../Mock/tree/tree7.json",
+            url8 = "../../Mock/tree/tree8.json",
+            url8_1 = "../../Mock/tree/tree8-1.json",
+            url9 = "../../Mock/tree/tree9.json",
+            url10 = "../../Mock/tree/tree10.json"
+
+        //set data
+        function event9() {
+            $.ajax({
+                url: url9,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("tree9", "data9", json)
+                }
+            })
+        }
+        event9()
+
+        function event8() {
+            $.ajax({
+                url: url8,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("tree8", "data8", json)
+                }
+            })
+        }
+        event8()
+
+        function event7() {
+            $.ajax({
+                url: url7,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("tree7", "data7", json)
+                }
+            })
+        }
+        event7()
+
+        function event6() {
+            $.ajax({
+                url: url6,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("tree6", "data6", json)
+                }
+            })
+        }
+        event6()
+
+        $.ajaxSettings.async = false
+        $.getJSON(url5, function(json) {
+            data5 = json;
+        });
+        $.ajaxSettings.async = false
+        $.getJSON(url4, function(json) {
+            data4 = json;
+        });
+        $.ajaxSettings.async = false
+        $.getJSON(url3, function(json) {
+            data3 = json;
+        });
+        $.ajaxSettings.async = false
+        $.getJSON(url2, function(json) {
+            data2 = json;
+        });
+        $.ajaxSettings.async = false
+        $.getJSON(url1, function(json) {
+            data1 = json;
+        });
+
+        //event
+        var hide2 = function() {
+            soUIDev.setDataById("tree2", "hidden2", true)
+        }
+
+        var loaded3 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例3选中的节点id有：" + nodesId)
+        }
+
+        var loaded5 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例5选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected3 = function(event) {
+            console.log("用例3,选中节点事件")
+            console.log(event)
+        }
+
+        var nodeSelected5 = function(event) {
+            console.log("用例5,选中节点事件")
+            console.log(event)
+        }
+
+        var nodeSelected4 = function(event) {
+            console.log("用例4,选中节点事件")
+            console.log(event)
+        }
+
+        var add4 = function(event) {
+            var newNode = event.detail.newNode,
+                id = newNode.id,
+                parentId = newNode.parentId,
+                text = newNode.text,
+                value = newNode.value,
+                state = newNode.state,
+                newId = ""
+            $.ajax({
+                url: url4_1,
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function(json) {
+                    if (json) {
+                        newId = Date.now() - 0
+                    }
+                }
+            })
+            return newId
+        }
+        var update4 = function(event) {
+            var newNode = event.detail.newNode,
+                id = newNode.id,
+                parentId = newNode.parentId,
+                text = newNode.text,
+                value = newNode.value,
+                state = newNode.state,
+                isSuccess = false
+            $.ajax({
+                url: url4_1,
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function(json) {
+                    if (json) {
+                        isSuccess = true
+                    }
+                }
+            })
+            return isSuccess
+        }
+        var delete4 = function(event) {
+            var id = event.detail.id,
+                isSuccess = false
+            if (!isSuccess) {
+                $.ajax({
+                    url: url2,
+                    type: "get",
+                    dataType: "json",
+                    success: function(json) {
+                        soUIDev.setDataById("tree4", "data4", json)
+                    }
+                })
+            }
+            return isSuccess
+        }
+
+        var getSelectsId = function() {
+            var selection = $("#tree5")[0].getAttribute("selection")
+            alert("用例5选中的节点id：" + selection)
+        }
+
+        var loaded6 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例6选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected6 = function(event) {
+            console.log("用例6,选中节点事件")
+            console.log(event)
+        }
+
+        var loaded7 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例7选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected7 = function(event) {
+            console.log("用例7,选中节点事件,节点“盆地/亚一级构造单元”联动树8获取新数据")
+            if (event.detail.activeNode.id == "53") {
+                $.ajax({
+                    url: url8_1,
+                    type: "get",
+                    dataType: "json",
+                    success: function(json) {
+                        soUIDev.setDataById("tree8", "data8", json)
+                    }
+                })
+            } else {
+                soUIDev.setDataById("tree8", "data8", null)
+            }
+        }
+
+        var hidetree8 = function() {
+            soUIDev.setDataById("tree8", "data8", null)
+        }
+
+        var loaded8 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例8选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected8 = function(event) {
+            console.log("用例8,选中节点事件")
+            console.log(event)
+        }
+
+        var loaded9 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例9选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected9 = function(event) {
+            console.log("用例9, 节点“盆地/亚一级构造单元”联动切换显示隐藏树10")
+            if (event.detail.activeNode.id == "53" && !!event.detail.activeNode.state) {
+                if (event.detail.activeNode.state.selected) {
+                    $.ajax({
+                        url: url10,
+                        type: "get",
+                        dataType: "json",
+                        success: function(json) {
+                            soUIDev.setDataById("tree10", "data10", json)
+                        }
+                    })
+                } else {
+                    soUIDev.setDataById("tree10", "data10", null)
+                }
+            }
+        }
+
+        var loaded10 = function(event) {
+            var nodesId = []
+            for (var i in event.detail.selectedNodes) {
+                nodesId.push(event.detail.selectedNodes[i].id)
+            }
+            console.log("用例10选中的节点id有：" + nodesId)
+        }
+
+        var nodeSelected10 = function(event) {
+            console.log("用例10,选中节点事件")
+            console.log(event)
+        }
+    </script>
+</body>
+
+</html>

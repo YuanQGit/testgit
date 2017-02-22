@@ -1,0 +1,30 @@
+ [{
+     "name": "表格1",
+     "count": 7,
+     "pageSize": 10,
+     "fields": [
+         { "name": "id", "title": "流水号", "type": "string", "key": true, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "" },
+         { "name": "name", "title": "姓名", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "" },
+         { "name": "math", "title": "数学", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "" },
+         { "name": "chinese", "title": "语文", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "" },
+         {
+             "name": "english",
+             "title": "英语",
+             "type": "string",
+             "key": false,
+             "visible": true,
+             "sortable": false,
+             "ascendingOrder": null,
+             "operationTemplate": ""
+         }
+     ],
+     "records": [
+         { "id": 1, "name": "wangly", "math": 80, "chinese": 80, "english": 91 },
+         { "id": 2, "name": "lixx", "math": 80, "chinese": 80, "english": 90 },
+         { "id": 3, "name": "xiaob", "math": 80, "chinese": 80, "english": 89 },
+         { "id": 4, "name": "liucz", "math": 80, "chinese": 80, "english": 88 },
+         { "id": 5, "name": "xiongy", "math": 80, "chinese": 80, "english": 87 },
+         { "id": 6, "name": "kuq", "math": 80, "chinese": 80, "english": 86 },
+         { "id": 7, "name": "liyz", "math": 80, "chinese": 80, "english": 85 }
+     ]
+ }]

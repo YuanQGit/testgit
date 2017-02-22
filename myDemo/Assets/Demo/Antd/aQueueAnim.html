@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进场动画</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+    <style>
+        .code-box li{
+            background: gainsboro;
+            height: 20px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">QueueAnim</h1>
+    <hr>
+    <p>通过简单的配置对一组元素添加串行的进场动画效果</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。</li>
+        <li>小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，</li>
+        <li>提高整体视觉效果和产品的质感。</li>
+        <li>特别适合首页和需要视觉展示效果的宣传页，以及单页应用的切换页面动效。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>默认</h3>
+        <br/>
+        <so:a_queueanim :delay="1000">
+            <div key="a">依次进场</div>
+            <div key="b">依次进场</div>
+            <div key="c">依次进场</div>
+            <div key="d">依次进场</div>
+            <div key="e">依次进场</div>
+            <div key="f">依次进场</div>
+        </so:a_queueanim>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+            &lt;so:a_queueanim :delay=&quot;1000&quot;&gt;
+                &lt;div key=&quot;a&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;b&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;c&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;d&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;e&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;f&quot;&gt;依次进场&lt;/div&gt;
+            &lt;/so:a_queueanim&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>进场和离场</h3>
+        <br/>
+        <so:a_queueanim :show="show" class="demo-content">
+            <div class="demo-kp" key="a">
+                <ul>
+                    <li>盆地</li>
+                    <li>区带</li>
+                    <li>含油气系统</li>
+                </ul>
+            </div>
+            <div class="demo-listBox" key="b">
+                <div class="demo-list">
+                    <div class="title">评价</div>
+                    <ul>
+                        <li>盆地评价</li>
+                        <li>目标评价</li>
+                        <li>油气藏评价</li>
+                    </ul>
+                </div>
+            </div>
+        </so:a_queueanim>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+        &lt;so:a_queueanim :show=&quot;show&quot; class=&quot;demo-content&quot;&gt;
+            &lt;div class=&quot;demo-kp&quot; key=&quot;a&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;盆地&lt;/li&gt;
+                    &lt;li&gt;区带&lt;/li&gt;
+                    &lt;li&gt;含油气系统&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;demo-listBox&quot; key=&quot;b&quot;&gt;
+                &lt;div class=&quot;demo-list&quot;&gt;
+                    &lt;div class=&quot;title&quot;&gt;评价&lt;/div&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;盆地评价&lt;/li&gt;
+                        &lt;li&gt;目标评价&lt;/li&gt;
+                        &lt;li&gt;油气藏评价&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/so:a_queueanim&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+        &lt;/p&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>进程和离场</h3>
+        <br/>
+        <so:a_queueanim class="demo-content" :key="'demo'"
+                        :show="show"
+                        :type="['right', 'left']"
+                        :ease="['easeOutQuart', 'easeInOutQuart']">
+            <div class="demo-kp" key="a">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="demo-listBox" key="b">
+                <div class="demo-list">
+                    <div class="title"></div>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </so:a_queueanim>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+            &lt;so:a_queueanim :delay=&quot;1000&quot;&gt;
+                &lt;div key=&quot;a&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;b&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;c&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;d&quot;&gt;依次进场&lt;so:a_queueanim class=&quot;demo-content&quot; :key=&quot;&#x27;demo&#x27;&quot;
+                        :show=&quot;show&quot;
+                        :type=&quot;[&#x27;right&#x27;, &#x27;left&#x27;]&quot;
+                        :ease=&quot;[&#x27;easeOutQuart&#x27;, &#x27;easeInOutQuart&#x27;]&quot;&gt;
+            &lt;div class=&quot;demo-kp&quot; key=&quot;a&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;demo-listBox&quot; key=&quot;b&quot;&gt;
+                &lt;div class=&quot;demo-list&quot;&gt;
+                    &lt;div class=&quot;title&quot;&gt;&lt;/div&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/so:a_queueanim&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+        &lt;/p&gt;&lt;/div&gt;
+                &lt;div key=&quot;e&quot;&gt;依次进场&lt;/div&gt;
+                &lt;div key=&quot;f&quot;&gt;依次进场&lt;/div&gt;
+            &lt;/so:a_queueanim&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>自定义动画进出场</h3>
+        <br/>
+        <so:a_queueanim class="demo-content"
+                        :show="show"
+                        :anim-config="[{ opacity: [1, 0], translateY: [0, 50] },{ opacity: [1, 0], translateY: [0, -50] }]">
+            <div class="demo-kp" key="a">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="demo-listBox" key="b">
+                <div class="demo-list">
+                    <div class="title"></div>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </so:a_queueanim>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+        &lt;so:a_queueanim class=&quot;demo-content&quot;
+                        :show=&quot;show&quot;
+                        :anim-config=&quot;[{ opacity: [1, 0], translateY: [0, 50] },{ opacity: [1, 0], translateY: [0, -50] }]&quot;&gt;
+            &lt;div class=&quot;demo-kp&quot; key=&quot;a&quot;&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;demo-listBox&quot; key=&quot;b&quot;&gt;
+                &lt;div class=&quot;demo-list&quot;&gt;
+                    &lt;div class=&quot;title&quot;&gt;&lt;/div&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/so:a_queueanim&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+        &lt;/p&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>表单动画进出场</h3>
+        <br/>
+        <so:a_queueanim class="ant-form-horizontal" :component="'form'" :type="'bottom'"
+                        :leave-reverse="true"
+                        :show="show">
+            <div class="ant-form-item ant-form-item-compact" key='name'>
+                <label htmlFor="userName" class="col-6" required>用户名：</label>
+                <div class="col-6">
+                    <p class="ant-form-text">大眼萌 minion</p>
+                </div>
+            </div>
+            <div class="ant-form-item" key='password'>
+                <label htmlFor="password" class="col-6" required>密码：</label>
+                <div class="col-14">
+                    <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
+                </div>
+            </div>
+            <div class="ant-form-item" key='remark'>
+                <label htmlFor="remark" class="col-6" required>备注：</label>
+                <div class="col-14">
+                    <textarea class="ant-input" id="remark" placeholder="随便写"></textarea>
+                    <p class="ant-form-explain">随便写点什么</p>
+                </div>
+            </div>
+            <div class="ant-form-item ant-form-item-compact" key='checkbox'>
+                <div class="col-14 col-offset-6">
+                    <label>
+                        <so:a_checkbox>同意</so:a_checkbox>
+                    </label>
+                </div>
+            </div>
+            <div class="row" key='btn'>
+                <div class="col-16 col-offset-6">
+                    <so:a_button :type="'primary'">确定</so:a_button>
+                </div>
+            </div>
+        </so:a_queueanim>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+        &lt;so:a_queueanim class=&quot;ant-form-horizontal&quot; :component=&quot;&#x27;form&#x27;&quot; :type=&quot;&#x27;bottom&#x27;&quot;
+                        :leave-reverse=&quot;true&quot;
+                        :show=&quot;show&quot;&gt;
+            &lt;div class=&quot;ant-form-item ant-form-item-compact&quot; key=&#x27;name&#x27;&gt;
+                &lt;label htmlFor=&quot;userName&quot; class=&quot;col-6&quot; required&gt;用户名：&lt;/label&gt;
+                &lt;div class=&quot;col-6&quot;&gt;
+                    &lt;p class=&quot;ant-form-text&quot;&gt;大眼萌 minion&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ant-form-item&quot; key=&#x27;password&#x27;&gt;
+                &lt;label htmlFor=&quot;password&quot; class=&quot;col-6&quot; required&gt;密码：&lt;/label&gt;
+                &lt;div class=&quot;col-14&quot;&gt;
+                    &lt;input class=&quot;ant-input&quot; type=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;请输入密码&quot;/&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ant-form-item&quot; key=&#x27;remark&#x27;&gt;
+                &lt;label htmlFor=&quot;remark&quot; class=&quot;col-6&quot; required&gt;备注：&lt;/label&gt;
+                &lt;div class=&quot;col-14&quot;&gt;
+                    &lt;textarea class=&quot;ant-input&quot; id=&quot;remark&quot; placeholder=&quot;随便写&quot;&gt;&lt;/textarea&gt;
+                    &lt;p class=&quot;ant-form-explain&quot;&gt;随便写点什么&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;ant-form-item ant-form-item-compact&quot; key=&#x27;checkbox&#x27;&gt;
+                &lt;div class=&quot;col-14 col-offset-6&quot;&gt;
+                    &lt;label&gt;
+                        &lt;so:a_checkbox&gt;同意&lt;/so:a_checkbox&gt;
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;row&quot; key=&#x27;btn&#x27;&gt;
+                &lt;div class=&quot;col-16 col-offset-6&quot;&gt;
+                    &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot;&gt;确定&lt;/so:a_button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/so:a_queueanim&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+        &lt;/p&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>添加和删除</h3>
+        <br/>
+        <div class="demo-content">
+            <div class="demo-listBox" key="b">
+                <div class="demo-list">
+                    <div class="title"></div>
+                    <so:a_queueanim :component="'ul'" :type="['right', 'left']" :watch-value="items" :show="show">
+                        <li v-for="item in items" :key="Date.now()"></li>
+                    </so:a_queueanim>
+                </div>
+            </div>
+        </div>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+            <so:a_button :onclick="_handleAdd" style="margin-left: 10px">添加</so:a_button>
+            <so:a_button :onclick="_handleRemove" style="margin-left: 10px">删除</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+        &lt;div class=&quot;demo-content&quot;&gt;
+            &lt;div class=&quot;demo-listBox&quot; key=&quot;b&quot;&gt;
+                &lt;div class=&quot;demo-list&quot;&gt;
+                    &lt;div class=&quot;title&quot;&gt;&lt;/div&gt;
+                    &lt;so:a_queueanim :component=&quot;&#x27;ul&#x27;&quot; :type=&quot;[&#x27;right&#x27;, &#x27;left&#x27;]&quot; :watch-value=&quot;items&quot; :show=&quot;show&quot;&gt;
+                        &lt;li v-for=&quot;item in items&quot; :key=&quot;Date.now()&quot;&gt;&lt;/li&gt;
+                    &lt;/so:a_queueanim&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+            &lt;so:a_button :onclick=&quot;_handleAdd&quot; style=&quot;margin-left: 10px&quot;&gt;添加&lt;/so:a_button&gt;
+            &lt;so:a_button :onclick=&quot;_handleRemove&quot; style=&quot;margin-left: 10px&quot;&gt;删除&lt;/so:a_button&gt;
+        &lt;/p&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>一个复杂的例子</h3>
+        <br/>
+        <so:a_queueanim
+                :show="show"
+                :type="['right', 'left']">
+            <div class="demo-header" key="header">
+                <div class="logo">
+                    <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+                    <span>logo</span>
+                </div>
+                <so:a_queueanim :component="'ul'">
+                    <li key="0"></li>
+                    <li key="1"></li>
+                    <li key="2"></li>
+                    <li key="3"></li>
+                    <li key="4"></li>
+                </so:a_queueanim>
+            </div>,
+            <so:a_queueanim class="demo-content" :key="'content'" :delay="300">
+                <div class="demo-title" key="title">我是标题</div>
+                <so:a_queueanim class="demo-kp" :key="'b'">
+                    <so:a_queueanim :component="'ul'">
+                        <li key="0"></li>
+                        <li key="1"></li>
+                        <li key="2"></li>
+                    </so:a_queueanim>
+                </so:a_queueanim>
+                <div class="demo-title" key="title2">我是标题</div>
+                <div class="demo-listBox">
+                    <so:a_queueanim class="demo-list"
+                                    :delay="500">
+                        <div class="title" key="title3"></div>
+                        <so:a_queueanim :component="'ul'" :type="'bottom'" :key="'li'">
+                            <li key="0"></li>
+                            <li key="1"></li>
+                            <li key="2"></li>
+                            <li key="3"></li>
+                            <li key="4"></li>
+                        </so:a_queueanim>
+                    </so:a_queueanim>
+                </div>
+            </so:a_queueanim>
+            <so:a_queueanim :type="'bottom'"
+                            :delay="1000" :key="'footerBox'">
+                <div class="demo-footer" key="footer"></div>
+            </so:a_queueanim>
+        </so:a_queueanim>
+        <p class="buttons">
+            <so:a_button :type="'primary'" :onclick="_handleClick">切换</so:a_button>
+        </p>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+       &lt;so:a_queueanim
+                :show=&quot;show&quot;
+                :type=&quot;[&#x27;right&#x27;, &#x27;left&#x27;]&quot;&gt;
+            &lt;div class=&quot;demo-header&quot; key=&quot;header&quot;&gt;
+                &lt;div class=&quot;logo&quot;&gt;
+                    &lt;img width=&quot;30&quot; src=&quot;https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg&quot; /&gt;
+                    &lt;span&gt;logo&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;so:a_queueanim :component=&quot;&#x27;ul&#x27;&quot;&gt;
+                    &lt;li key=&quot;0&quot;&gt;&lt;/li&gt;
+                    &lt;li key=&quot;1&quot;&gt;&lt;/li&gt;
+                    &lt;li key=&quot;2&quot;&gt;&lt;/li&gt;
+                    &lt;li key=&quot;3&quot;&gt;&lt;/li&gt;
+                    &lt;li key=&quot;4&quot;&gt;&lt;/li&gt;
+                &lt;/so:a_queueanim&gt;
+            &lt;/div&gt;,
+            &lt;so:a_queueanim class=&quot;demo-content&quot; :key=&quot;&#x27;content&#x27;&quot; :delay=&quot;300&quot;&gt;
+                &lt;div class=&quot;demo-title&quot; key=&quot;title&quot;&gt;我是标题&lt;/div&gt;
+                &lt;so:a_queueanim class=&quot;demo-kp&quot; :key=&quot;&#x27;b&#x27;&quot;&gt;
+                    &lt;so:a_queueanim :component=&quot;&#x27;ul&#x27;&quot;&gt;
+                        &lt;li key=&quot;0&quot;&gt;&lt;/li&gt;
+                        &lt;li key=&quot;1&quot;&gt;&lt;/li&gt;
+                        &lt;li key=&quot;2&quot;&gt;&lt;/li&gt;
+                    &lt;/so:a_queueanim&gt;
+                &lt;/so:a_queueanim&gt;
+                &lt;div class=&quot;demo-title&quot; key=&quot;title2&quot;&gt;我是标题&lt;/div&gt;
+                &lt;div class=&quot;demo-listBox&quot;&gt;
+                    &lt;so:a_queueanim class=&quot;demo-list&quot;
+                                    :delay=&quot;500&quot;&gt;
+                        &lt;div class=&quot;title&quot; key=&quot;title3&quot;&gt;&lt;/div&gt;
+                        &lt;so:a_queueanim :component=&quot;&#x27;ul&#x27;&quot; :type=&quot;&#x27;bottom&#x27;&quot; :key=&quot;&#x27;li&#x27;&quot;&gt;
+                            &lt;li key=&quot;0&quot;&gt;&lt;/li&gt;
+                            &lt;li key=&quot;1&quot;&gt;&lt;/li&gt;
+                            &lt;li key=&quot;2&quot;&gt;&lt;/li&gt;
+                            &lt;li key=&quot;3&quot;&gt;&lt;/li&gt;
+                            &lt;li key=&quot;4&quot;&gt;&lt;/li&gt;
+                        &lt;/so:a_queueanim&gt;
+                    &lt;/so:a_queueanim&gt;
+                &lt;/div&gt;
+            &lt;/so:a_queueanim&gt;
+            &lt;so:a_queueanim :type=&quot;&#x27;bottom&#x27;&quot;
+                            :delay=&quot;1000&quot; :key=&quot;&#x27;footerBox&#x27;&quot;&gt;
+                &lt;div class=&quot;demo-footer&quot; key=&quot;footer&quot;&gt;&lt;/div&gt;
+            &lt;/so:a_queueanim&gt;
+        &lt;/so:a_queueanim&gt;
+        &lt;p class=&quot;buttons&quot;&gt;
+            &lt;so:a_button :type=&quot;&#x27;primary&#x27;&quot; :onclick=&quot;_handleClick&quot;&gt;切换&lt;/so:a_button&gt;
+        &lt;/p&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>类型</th>
+            <th>默认</th>
+            <th>详细</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>type</td>
+            <td>string/array</td>
+            <td>right</td>
+            <td>动画内置参数
+                left right top bottom scale scaleBig scaleX scaleY
+            </td>
+        </tr>
+        <tr>
+            <td>animConfig</td>
+            <td>object / array</td>
+            <td>null</td>
+            <td>配置动画参数
+                如 {opacity:[1, 0],translateY:[0, -30]} 具体参考 velocity 的写法</td>
+        </tr>
+        <tr>
+            <td>delay</td>
+            <td>number / array</td>
+            <td>0</td>
+            <td>整个动画的延时,以毫秒为单位</td>
+        </tr>
+        <tr>
+            <td>duration</td>
+            <td>number / array</td>
+            <td>500</td>
+            <td>每个动画的时间,以毫秒为单位</td>
+        </tr>
+        <tr>
+            <td>interval</td>
+            <td>number / array</td>
+            <td>100</td>
+            <td>每个动画的间隔时间,以毫秒为单位</td>
+        </tr>
+        <tr>
+            <td>leaveReverse</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>出场时是否倒放,从最后一个 dom 开始往上播放</td>
+        </tr>
+        <tr>
+            <td>ease</td>
+            <td>string / array</td>
+            <td>easeOutQuart</td>
+            <td>动画的缓动函数</td>
+        </tr>
+        <tr>
+            <td>animatingClassName</td>
+            <td>array</td>
+            <td>['queue-anim-entering', 'queue-anim-leaving']</td>
+            <td>进出场动画进行中的类名</td>
+        </tr>
+        <tr>
+            <td>component</td>
+            <td>string</td>
+            <td>div</td>
+            <td>QueueAnim 替换的标签名</td>
+        </tr>
+        </tbody>
+    </table>
+    <h5>注：1、每个子标签必须带 key，如果未设置 key 将不执行动画。</h5>
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2、当以上数据类型为 Array 时，['left', 'top'] 第一个为进场动画属性, 第二个为离场属性。</h5>
+</div>
+
+<script>
+    var show=true;
+    var items=[1,2,3,4,5];
+    var _handleClick=function () {
+        vm.show=!vm.show;
+    };
+    var _handleAdd=function () {
+        vm.items.push(vm.items.length+1);
+    };
+    var _handleRemove=function () {
+        vm.items.pop();
+    };
+    var vm=soUIDev.bind({
+        scope:'sooil',
+       model:['so:a_queueanim','so:a_button','so:a_checkbox']
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+    "fields": [
+        { "name": "id", "title": "id", "type": "string", "key": true, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "" },
+        { "name": "name", "title": "name", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "<span style='color:red'><#= name#></span>$<span style='color:blue'><#= name.length>4?'long':'short'#></span>" },
+        { "name": "math", "title": "math", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "" },
+        { "name": "chinese", "title": "chinese", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "" },
+        {
+            "name": "english",
+            "title": "english",
+            "type": "string",
+            "key": false,
+            "visible": true,
+            "sortable": true,
+            "ascendingOrder": null,
+            "operationTemplate": "<h4><#=  english >90?'perfact':english >80&&english<=90?'good':'normal' #></h4>"
+        },
+        { "name": "operate", "title": "operate", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "<button onclick='partParameters(<#= id#>,<#= name#>)'>edit</button>$<button onclick='rowUpdate()'>update</button> " }
+    ],
+    "records": [
+        { "id": 1, "name": "wanglyxxxxxxxxxxxdddddddddddddddddddddddddddxxxxx", "math": 18, "chinese": 80, "english": 91 },
+        { "id": 2, "name": "lixx", "math": 28, "chinese": 80, "english": 90 },
+        { "id": 3, "name": "xiaob", "math": 38, "chinese": 80, "english": 89 },
+        { "id": 4, "name": "liucz", "math": 48, "chinese": 80, "english": 88 },
+        { "id": 5, "name": "xiongy", "math": 58, "chinese": 80, "english": 87 },
+        { "id": 6, "name": "kuq", "math": 68, "chinese": 80, "english": 86 },
+        { "id": 7, "name": "liyz", "math": 78, "chinese": 80, "english": 85 },
+        { "id": 8, "name": "lid", "math": 88, "chinese": 80, "english": 84 },
+        { "id": 9, "name": "yiwk", "math": 98, "chinese": 80, "english": 83 },
+        { "id": 10, "name": "wangl", "math": 108, "chinese": 80, "english": 82 },
+        { "id": 11, "name": "fangzh", "math": 118, "chinese": 80, "english": 81 },
+        { "id": 12, "name": "yanlin", "math": 128, "chinese": 80, "english": 80 },
+        { "id": 13, "name": "wanght", "math": 138, "chinese": 80, "english": 79 },
+        { "id": 14, "name": "yangt", "math": 148, "chinese": 80, "english": 78 },
+        { "id": 15, "name": "huangf", "math": 158, "chinese": 80, "english": 77 },
+        { "id": 16, "name": "liutp", "math": 168, "chinese": 80, "english": 76 },
+        { "id": 17, "name": "hewt", "math": 178, "chinese": 80, "english": 75 },
+        { "id": 18, "name": "wuhl", "math": 188, "chinese": 80, "english": 74 },
+        { "id": 19, "name": "yangq", "math": 198, "chinese": 80, "english": 73 },
+        { "id": 20, "name": "chengsq", "math": 208, "chinese": 80, "english": 72 },
+        { "id": 21, "name": "dengll", "math": 218, "chinese": 80, "english": 71 },
+        { "id": 7, "name": "liyz", "math": 78, "chinese": 80, "english": 85 },
+        { "id": 6, "name": "kuq", "math": 68, "chinese": 80, "english": 86 },
+        { "id": 5, "name": "xiongy", "math": 58, "chinese": 80, "english": 87 },
+        { "id": 4, "name": "liucz", "math": 48, "chinese": 80, "english": 88 },
+        { "id": 3, "name": "xiaob", "math": 38, "chinese": 80, "english": 89 },
+        { "id": 2, "name": "lixx", "math": 28, "chinese": 80, "english": 90 },
+        { "id": 1, "name": "wangly", "math": 18, "chinese": 80, "english": 91 }
+    ],
+    "selectedKeys": ["2", "8", "9"]
+}

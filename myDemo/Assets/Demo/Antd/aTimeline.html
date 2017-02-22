@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>时间轴</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Timeline</h1>
+    <ul>
+        <li>category: Components</li>
+        <li>chinese: 时间轴</li>
+        <li>type: 展示</li>
+    </ul>
+    <hr>
+    <p>垂直展示的时间流信息。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当有一系列信息需要从上至下按时间排列时；</li>
+        <li>需要有一条时间轴进行视觉上的串联时；</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本用法</h3>
+        <br/>
+        <so:a_timeline>
+            <so:a_timelineitem>创建服务现场 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem>初步排除网络异常 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem>技术测试异常 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem>网络异常正在修复 2015-09-01</so:a_timelineitem>
+        </so:a_timeline>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_timeline&gt;
+    &lt;so:a_timelineitem&gt;创建服务现场 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;初步排除网络异常 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;技术测试异常 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;网络异常正在修复 2015-09-01&lt;/so:a_timelineitem&gt;
+&lt;/so:a_timeline&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>圆圈颜色</h3>
+        <br/>
+        <so:a_timeline>
+            <so:a_timelineitem :color="'green'">创建服务现场 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem :color="'green'">初步排除网络异常 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem :color="'red'">
+                <p>初步排除网络异常1</p>
+                <p>初步排除网络异常2</p>
+                <p>初步排除网络异常3 2015-09-01</p>
+            </so:a_timelineitem>
+            <so:a_timelineitem>
+                <p>技术测试异常1</p>
+                <p>技术测试异常2</p>
+                <p>技术测试异常3 2015-09-01</p>
+            </so:a_timelineitem>
+        </so:a_timeline>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_timeline&gt;
+    &lt;so:a_timelineitem :color=&quot;'green'&quot;&gt;创建服务现场 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem :color=&quot;'green'&quot;&gt;初步排除网络异常 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem :color=&quot;'red'&quot;&gt;
+        &lt;p&gt;初步排除网络异常1&lt;/p&gt;
+        &lt;p&gt;初步排除网络异常2&lt;/p&gt;
+        &lt;p&gt;初步排除网络异常3 2015-09-01&lt;/p&gt;
+    &lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;
+        &lt;p&gt;技术测试异常1&lt;/p&gt;
+        &lt;p&gt;技术测试异常2&lt;/p&gt;
+        &lt;p&gt;技术测试异常3 2015-09-01&lt;/p&gt;
+    &lt;/so:a_timelineitem&gt;
+&lt;/so:a_timeline&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>最后一个</h3>
+        <br/>
+        <so:a_timeline :pending="true">
+            <so:a_timelineitem>创建服务现场 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem>初步排除网络异常 2015-09-01</so:a_timelineitem>
+            <so:a_timelineitem>技术测试异常 2015-09-01</so:a_timelineitem>
+        </so:a_timeline>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_timeline :pending=&quot;true&quot;&gt;
+    &lt;so:a_timelineitem&gt;创建服务现场 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;初步排除网络异常 2015-09-01&lt;/so:a_timelineitem&gt;
+    &lt;so:a_timelineitem&gt;技术测试异常 2015-09-01&lt;/so:a_timelineitem&gt;
+&lt;/so:a_timeline&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <h3>Timeline</h3>
+    时间轴。
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>pending</td>
+            <td>指定最后一个幽灵节点。</td>
+            <td>boolean</td>
+            <td>无</td>
+            <td>false</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Timeline.Item</h3>
+    时间轴的每一个节点。
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>color</td>
+            <td>指定圆圈颜色。</td>
+            <td>string</td>
+            <td>blue, red, green</td>
+            <td>blue</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript">
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_timeline','so:a_timelineitem']
+    });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Typeahead</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link rel="stylesheet" href="../../Js/lib/strap/css/strapDemo.css">
+
+</head>
+<body>
+
+
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Typeahead</h1>
+    <hr>
+    <p>过滤。</p>
+    <h2>何时使用</h2>
+    <ul class="usertime">
+        <li>输入时进行过滤查询。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>data传入数据</h3>
+        <br/>
+        <h4>Asynchronous results</h4>
+        <so:s_typeahead :data="USstate" match-case="true" placeholder="s开头的">
+        </so:s_typeahead>
+
+        <div class="code-box-word">
+				<pre>
+                    <code class="">
+        &lt;h4&gt;Asynchronous results&lt;/h4&gt;
+        &lt;so:s_typeahead :data=&quot;USstate&quot; placeholder=&quot;s开头的&quot;&gt;
+        &lt;/so:s_typeahead&gt;
+
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">API</h2>
+    <h3>Typeahead</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>成员</th>
+            <th>值类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>value</td>
+            <td>String</td>
+            <td>''</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>Array</td>
+            <td></td>
+            <td>本地数据</td>
+        </tr>
+        <tr>
+            <td>async</td>
+            <td>String</td>
+            <td></td>
+            <td>异步http url请求</td>
+        </tr>
+        <tr>
+            <td>limit</td>
+            <td>Number</td>
+            <td>8</td>
+            <td>最多显示数量</td>
+        </tr>
+        <tr>
+            <td>key</td>
+            <td>String</td>
+            <td>null</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>match-case</td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>match-start</td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td>从开始匹配，如果是true,输入'a',则匹配'ab'而不会匹配'ba'</td>
+        </tr>
+        <tr>
+            <td>on-hit</td>
+            <td>Function</td>
+            <td></td>
+            <td>click或者hit的回调函数</td>
+        </tr>
+        <tr>
+            <td>template</td>
+            <td>String</td>
+            <td><code>&lt;span v-html=&quot;$value | highlight query&quot;&gt;&lt;/span&gt;</code></td>
+            <td>用于渲染输入请求</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script>
+    var USstate=["sdfjk","skd","sa"];
+    var googleCallback=function(items, targetVM) {
+        debugger;
+        const that = targetVM;
+        that.reset()
+        that.value = items.asyncTemplate
+    }
+    soUIDev.bind({
+        scope:"sooil",
+        model:'so:s_typeahead'
+    })
+</script>
+</body>
+</html>

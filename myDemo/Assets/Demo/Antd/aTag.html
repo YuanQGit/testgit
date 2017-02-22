@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>标签</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Tag</h1>
+    <hr>
+    <p>进行标记和分类的小标签。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>用于标记事物的属性和维度。</li>
+        <li>进行分类。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:a_tag>标签一</so:a_tag>
+        <so:a_tag>标签二</so:a_tag>
+        <so:a_tag closable :on-close="_onClose">标签三</so:a_tag>
+        <so:a_tag :href="'http://www.baidu.com'">标签四链接</so:a_tag>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_tag&gt;标签一&lt;/so:a_tag&gt;
+&lt;so:a_tag&gt;标签二&lt;/so:a_tag&gt;
+&lt;so:a_tag closable :on-close=&quot;_onClose&quot;&gt;标签三&lt;/so:a_tag&gt;
+&lt;so:a_tag :href=&quot;'http://www.baidu.com'&quot;&gt;标签四链接&lt;/so:a_tag&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>四种颜色类型</h3>
+        <br/>
+        <so:a_tag closable :color="'blue'">蓝色</so:a_tag>
+        <so:a_tag closable :color="'green'">绿色</so:a_tag>
+        <so:a_tag closable :color="'yellow'">黄色</so:a_tag>
+        <so:a_tag closable :color="'red'">红色</so:a_tag>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_tag closable :color=&quot;'blue'&quot;&gt;蓝色&lt;/so:a_tag&gt;
+&lt;so:a_tag closable :color=&quot;'green'&quot;&gt;绿色&lt;/so:a_tag&gt;
+&lt;so:a_tag closable :color=&quot;'yellow'&quot;&gt;黄色&lt;/so:a_tag&gt;
+&lt;so:a_tag closable :color=&quot;'red'&quot;&gt;红色&lt;/so:a_tag&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>href</td>
+            <td>链接的地址，会传给 a 标签</td>
+            <td>string</td>
+            <td></td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>closable</td>
+            <td>标签是否可以关闭</td>
+            <td>boolean</td>
+            <td></td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>on-close</td>
+            <td>组合时根据此项判定checked</td>
+            <td>function</td>
+            <td></td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>标签的色彩</td>
+            <td>string</td>
+            <td>blue green yellow red</td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    soUIDev.bind({
+        scope:"sooil",
+        model:'so:a_tag'
+    });
+
+</script>
+</body>
+
+</html>

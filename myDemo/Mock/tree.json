@@ -1,0 +1,14 @@
+{
+    "data": [
+        { "id": 1, "pid": 0, "text": "File", "value": "File_val" },
+        { "id": 2, "pid": 0, "text": "File2", "value": "File2_val" },
+        { "id": 3, "pid": 0, "text": "File3", "value": "File3_val" },
+        { "id": 4, "pid": 3, "text": "Documents", "value": "documents_val" },
+        { "id": 5, "pid": 4, "text": "Projects", "value": "projects_val" },
+        { "id": 6, "pid": 4, "text": "proj1", "value": "proj1_val" },
+        { "id": 7, "pid": 6, "text": "proj2", "value": "proj2_val" },
+        { "id": 8, "pid": 4, "text": "docu1", "value": "docu1_val" },
+        { "id": 9, "pid": 3, "text": "file2", "value": "file3_val" },
+        { "id": 2, "pid": 0, "text": "File4", "value": "File4_val" }
+    ]
+}

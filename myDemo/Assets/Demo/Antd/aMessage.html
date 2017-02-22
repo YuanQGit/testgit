@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>全局提示</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../../node_modules/vue-antd/components/message/index.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Message</h1>
+    <hr>
+    <p>全局展示操作反馈信息。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>可提供成功、警告和错误等反馈信息。</li>
+        <li>顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>成功</h3>
+        <br/>
+        <so:a_button type="primary" :onclick="_success">显示成功提示</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; :onclick=&quot;_success&quot;&gt;显示成功提示&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>错误或失败</h3>
+        <br/>
+        <so:a_button type="primary" :onclick="_error">显示失败提示</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; :onclick=&quot;_success&quot;&gt;显示成功提示&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>普通提示</h3>
+        <br/>
+        <so:a_button type="primary" :onclick="_info">显示普通提醒</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; :onclick=&quot;_success&quot;&gt;显示成功提示&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>修改延时</h3>
+        <br/>
+        <so:a_button type="primary" :onclick="_customTime">自定义时长提示</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; :onclick=&quot;_success&quot;&gt;显示成功提示&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <div class="code-box">
+        <h3>加载中</h3>
+        <br/>
+        <so:a_button type="primary" :onclick="_showLoading">显示加载中...</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; :onclick=&quot;_success&quot;&gt;显示成功提示&lt;/so:a_button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <h2 id="api">API</h2>
+    <ul>
+        <li>message.success(content, duration)</li>
+        <li>message.error(content, duration)</li>
+        <li>message.info(content, duration)</li>
+        <li>message.loading(content, duration)</li>
+    </ul>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>content</td>
+            <td>提示内容</td>
+            <td>React.Element or String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>duration</td>
+            <td>自动关闭的延时</td>
+            <td>number</td>
+            <td>1.5</td>
+        </tr>
+        </tbody>
+    </table>
+    还提供了一个全局配置方法：<br>
+    <ul>
+        <li>message.config(options)</li>
+    </ul>
+
+    <div class="code-box-word" style="background-color: #F7F7F7;">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+message.config({
+  top: 100
+});
+                    </code>
+                </pre>
+    </div>
+
+    <table style="margin-top: 10px;">
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>top</td>
+            <td>消息距离顶部的位置</td>
+            <td>Number</td>
+            <td>24px</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<script type="text/javascript">
+    var _success=function(){
+        soUIDev.message.success("这是成功的提示",3);
+    };
+    var _error=function () {
+        soUIDev.message.error("这是失败提示",3);
+    }
+    var _info=function () {
+        soUIDev.message.info("这是普通提醒",3);
+    }
+    var _customTime=function () {
+        soUIDev.message.success("这是一条成功的提示，并将于10秒钟之后关闭",10);
+    }
+    var _showLoading=function () {
+        soUIDev.message.loading("正在加载中...",3);
+    }
+
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_button','message']
+    });
+
+</script>
+</body>
+
+</html>

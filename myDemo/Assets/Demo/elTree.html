@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据展示功能</title>
+    <meta charset="utf-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/soUIDev.js"></script>
+
+</head>
+
+<body>
+<so:eltree :id="tree1" :data="regions" :props="props"></so:eltree>
+<input type="button" name="add" value="新增" onclick="add()" />
+<script>
+    var regions = [{
+          'name': 'region1'
+        }, {
+          'name': 'region2'
+        }];
+    var props= {
+          label: 'name',
+          children: 'zones'
+        };
+        function add(){
+          regions.push({'name': 'region'});
+          soUIDev.setDataById("tree1", "regions", regions);
+        }
+</script>
+</body>
+
+</html>

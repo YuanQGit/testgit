@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link rel="stylesheet" href="../../Js/lib/strap/css/strapDemo.css">
+</head>
+<body>
+
+
+<div id="sooil" class="markdown view">
+    <h1 class="compent">Tabs</h1>
+    <hr>
+    <p class="description">导航标签页。</p>
+    <br>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3 class="UIType">基本用法</h3>
+        <br/>
+        <so:s_tabset :active="1">
+            <so:s_tab header="鹿柴">
+               <h4>空山不见人，但闻人语响。</h4> <br>
+                <h4>返影入深林，复照青苔上。</h4>
+            </so:s_tab>
+            <so:s_tab header="相思">
+                <h4>红豆生南国，春来发几枝。</h4><br>
+                <h4>愿君多采撷，此物最相思。</h4>
+            </so:s_tab>
+        </so:s_tabset>
+
+        <div class="code-box-word">
+				<pre>
+                    <code class="">
+         &lt;so:s_tabset :active=&quot;1&quot;&gt;
+            &lt;so:s_tab header=&quot;鹿柴&quot;&gt;
+               &lt;h4&gt;空山不见人，但闻人语响。&lt;/h4&gt; &lt;br&gt;
+                &lt;h4&gt;返影入深林，复照青苔上。&lt;/h4&gt;
+            &lt;/so:s_tab&gt;
+            &lt;so:s_tab header=&quot;相思&quot;&gt;
+                &lt;h4&gt;红豆生南国，春来发几枝。&lt;/h4&gt;&lt;br&gt;
+                &lt;h4&gt;愿君多采撷，此物最相思。&lt;/h4&gt;
+            &lt;/so:s_tab&gt;
+        &lt;/so:s_tabset&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">参数列表</h2>
+    <p class="propstable">so:s_tabset</p>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>值类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>active</td>
+            <td>Number</td>
+            <td>0</td>
+            <td>展示序列号为active的tab内容</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="propstable">so:s_tab</p>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>值类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>disabled</td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td>是否能够通过click事件展示tab内容</td>
+        </tr>
+        <tr>
+            <td>header</td>
+            <td>String</td>
+            <td></td>
+            <td>tab的标题</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:s_tab','so:s_tabset']
+    })
+</script>
+</body>
+</html>

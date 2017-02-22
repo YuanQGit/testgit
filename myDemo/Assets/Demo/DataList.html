@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+
+    <style>
+        * {
+            font-family: '微软雅黑', arial, verdana, sans-serif;
+            font-size: 14px;
+        }
+
+        #list {
+            margin: 20px 5px 50px 120px;
+            width: 66%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="list" style="margin:60px;width:66%">
+    <div id="searchinfo">
+        <so:datalist :onclick="titleClick" :data="list"  :highlight="key" titletemplate="">
+            <a href="#" style="padding-left:10px" slot="collect">
+                <img src="../img/save.png"/><span>收藏</span>
+            </a>
+        </so:datalist>
+        <so:page :pagenum="pagenum"  :count="count" :size="size" :onclick="pager" :pagersize="pagersize" :activeindex="index"></so:page>
+    </div>
+</div>
+<script type="text/javascript">
+    var index=5;
+    var list = [];
+    var key = ["盆地","江"];
+    var count = 0;
+    var pagenum = 5;
+    var size = 10;
+    var pagersize="";
+    function titleClick(value) {
+        alert(value);
+    };
+
+    function pager(pageIndex) {
+        var startIndex = (pageIndex - 1) * size;
+        vm.$data.list = datalist.slice(startIndex, startIndex + size);
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    };
+
+    function pageScroll() {
+        window.scrollBy(0, -300);
+        scrolldelay = setTimeout('pageScroll()', 2000);
+    }
+
+    var vm = soUIDev.bind({
+        scope: "searchinfo",
+        model: ["so:datalist","so:page"]
+    });
+    $.ajax({
+        url: "../../Mock/datalist.json",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            debugger;
+            datalist = data.list;
+            vm.$data.key = data.key;
+            vm.$data.list = datalist.slice(0, size);
+            vm.$data.count=data.list.length;
+            vm.$data.index=0;
+        }
+    });
+</script>
+</body>
+</html>

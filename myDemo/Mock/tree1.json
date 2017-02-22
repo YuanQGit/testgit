@@ -1,0 +1,17 @@
+{
+    "data": [
+        { "id": 38, "parentId": "#", "text": "盆地", "value": "盆地_value" },
+        { "id": 40, "parentId": 38, "text": "海相沉积盆地", "value": "海相沉积盆地_value" },
+        { "id": 41, "parentId": 42, "text": "盆地/一级构造单元", "value": "value" },
+        { "id": 42, "parentId": 38, "text": "隆起", "value": "value" },
+        { "id": 43, "parentId": 38, "text": "地垒", "value": "value" },
+        { "id": 44, "parentId": "#", "text": "坳陷", "value": "value" },
+        { "id": 45, "parentId": 38, "text": "地堑", "value": "value" },
+        { "id": 46, "parentId": 39, "text": "斜坡", "value": "value" },
+        { "id": 53, "parentId": null, "text": "盆地/亚一级构造单元", "value": "value" },
+        { "id": 55, "parentId": 53, "text": "凸起", "value": "value" },
+        { "id": 57, "parentId": 53, "text": "凹陷", "value": "value" },
+        { "id": 58, "parentId": 53, "text": "长垣", "value": "value" },
+        { "id": 63, "parentId": null, "text": "阶地", "value": "value" }
+    ]
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>对齐</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="align">
+    <so:a_checkbox :default-value="show" :on-change="_toggleMonitor"><span>toggle monitor</span></so:a_checkbox>
+    <div v-el:container id="container" style="width: 80%; height: 500px; border: 1px solid red">
+        <so:a_align
+                :align="align"
+                :monitor-window-resize="true">
+            <div style="position: absolute; width: 50px; height: 50px; background: yellow">source</div>
+        </so:a_align>
+    </div>
+</div>
+<script>
+    var align={
+                points: ['tc', 'tc'],
+                offset: [-200, 120]
+            };
+    var show=true;
+    var _toggleMonitor=function (Event) {
+        this.align={
+            points: ['tc', 'tc'],
+            offset: [-100, 120]
+        };
+    }
+    soUIDev.bind({
+        scope:'align',
+        model:['so:a_checkbox','so:a_align']
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:so="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>通知提醒框</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../../node_modules/vue-antd/components/notification/index.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Notification</h1>
+    <hr>
+    <p>全局展示通知提醒信息。</p>
+    <h2>何时使用</h2>
+    <h3>在系统右上角显示通知提醒信息。经常用于以下情况：</h3>
+    <ul>
+        <li>较为复杂的通知内容。</li>
+        <li>带有交互的通知，给出用户下一步的行动点。</li>
+        <li>系统主动推送。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本用法</h3>
+        <br/>
+        <so:a_button :type="'primary'" :onclick="ddd">打开通知提醒框</so:a_button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_button type=&quot;primary&quot; @click=&quot;_openNotification2&quot;&gt;打开通知提醒框&lt;/so:a_button&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">API</h2>
+    <ul>
+        <li>notification.success(config)</li>
+        <li>notification.error(config)</li>
+        <li>notification.info(config)</li>
+        <li>notification.warn(config)</li>
+        <li>notification.open(config)</li>
+        <li>notification.close(key: String)</li>
+    </ul>
+    config 参数如下：
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>message</td>
+            <td>通知提醒标题，必选</td>
+            <td>React.Element or String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>通知提醒内容，必选</td>
+            <td>React.Element or String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>btn</td>
+            <td>自定义关闭按钮</td>
+            <td>React.Element</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>key</td>
+            <td>当前通知唯一标志</td>
+            <td>String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>onClose</td>
+            <td>点击默认关闭按钮时触发的回调函数</td>
+            <td>Function</td>
+            <td>无</td>
+        </tr>
+
+        <tr>
+            <td>duration</td>
+            <td>默认 4.5 秒后自动关闭，配置为 null 则不自动关闭</td>
+            <td>Number</td>
+            <td>4.5</td>
+        </tr>
+        </tbody>
+    </table>
+    还提供了一个全局配置方法，需要在调用前提前配置，一次有效。
+    <ul>
+        <li>notification.config(options)</li>
+    </ul>
+
+    <div class="code-box-word" style="background-color: #F7F7F7;">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+message.config({
+  top: 100
+});
+                    </code>
+                </pre>
+    </div>
+
+    <table style="margin-top: 10px;">
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>top</td>
+            <td>消息距离顶部的位置</td>
+            <td>Number</td>
+            <td>24px</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var ddd=function () {
+        soUIDev.notification.success({
+            message: "我是not",
+            duration: 5
+        });
+        alert(2)
+    }
+
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_button','notification'],
+    });
+</script>
+</body>
+
+</html>

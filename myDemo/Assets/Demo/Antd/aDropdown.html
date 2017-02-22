@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Dropdown</h1>
+    <hr>
+    <p>向下弹出的列表。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:a_dropdown>
+            <div slot="overlay">
+                <ul class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-light ant-dropdown-menu-root">
+                    <li class="ant-dropdown-menu-item"><a target="_blank" href="http://www.alipay.com/">第一个菜单项</a></li>
+                    <li class="ant-dropdown-menu-item"><a target="_blank" href="http://www.taobao.com/">第二个菜单项</a></li>
+                    <li class="ant-dropdown-menu-item"><a target="_blank" href="http://www.tmall.com/">第三个菜单项</a></li>
+                </ul>
+            </div>
+            <so:a_button>
+                某按钮 <so:a_icon type="down"></so:a_icon>
+            </so:a_button>
+        </so:a_dropdown>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_dropdown&gt;
+    &lt;div slot=&quot;overlay&quot;&gt;
+        &lt;ul class=&quot;ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-light ant-dropdown-menu-root&quot;&gt;
+            &lt;li class=&quot;ant-dropdown-menu-item&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.alipay.com/&quot;&gt;第一个菜单项&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;ant-dropdown-menu-item&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.taobao.com/&quot;&gt;第二个菜单项&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;ant-dropdown-menu-item&quot;&gt;&lt;a target=&quot;_blank&quot; href=&quot;http://www.tmall.com/&quot;&gt;第三个菜单项&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;so:a_button&gt;
+        某按钮 &lt;so:a_icon type=&quot;down&quot;&gt;&lt;/so:a_icon&gt;
+    &lt;/so:a_button&gt;
+&lt;/so:a_dropdown&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    属性如下：
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>trigger</td>
+            <td>触发下拉的行为</td>
+            <td>"click" or "hover"</td>
+            <td>hover</td>
+        </tr>
+        <tr>
+            <td>overlay</td>
+            <td>菜单节点</td>
+            <td>React.Element</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>onSelect</td>
+            <td>选择后的回调</td>
+            <td>function(e) {}</td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+    菜单可由 antd.Menu 取得，可设置 onSelect 回调，菜单还包括菜单项 antd.Menu.Item，分割线 antd.Menu.Divider。<br>
+    注意： Menu.Item 必须设置唯一的 key 属性。
+</div>
+
+
+<script type="text/javascript">
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_dropdown','so:a_button']
+    });
+
+</script>
+</body>
+
+</html>

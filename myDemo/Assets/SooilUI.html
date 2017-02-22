@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ComponentsList</title>
+    <script src="./js/sooilui.js"></script>
+</head>
+
+<body>
+    <div id="sooil" style="width:600px; padding:30px 30px;">
+        <sooil_badge :count="200">
+            <a href="javascript:;" class="head-example"></a>
+        </sooil_badge>
+        <sooil_table :columns="columns" :data-source="dataSource"></sooil_table>
+        <sooil_button type="primary">主按钮</sooil_button>
+        <sooil_button>次按钮</sooil_button>
+        <sooil_button type="ghost">幽灵按钮</sooil_button>
+        <sooil_icon type="link"></sooil_icon>
+        <sooil_checkbox :default-checked="false" :on-change="_change"><span>Checkbox</span></sooil_checkbox>
+        <sooil_inputnumber min="1" max="10" default-value="3" :on-change="_handleChange"></sooil_inputnumber>
+    </div>
+
+    <script type="text/javascript">
+        //配置模块的另外一种方法
+        //sooilUI.vm.component('sooil_table', sooilUI.aTable)
+        //建立一个ViewModel
+        new sooilUI.vm({
+            //绑定在某个元素的域中，这个很重要：这样可以限定模块的区域不会对其他地方造成影响，更好控制，更干净。
+            el: '#sooil',
+            //参数
+            data: {
+                columns: [{
+                    title: '姓名',
+                    dataIndex: 'name',
+                    key: 'name',
+                }, {
+                    title: '年龄',
+                    dataIndex: 'age',
+                    key: 'age',
+                }, {
+                    title: '住址',
+                    dataIndex: 'address',
+                    key: 'address',
+                }],
+                dataSource: [{
+                    key: '1',
+                    name: '胡彦斌',
+                    age: 32,
+                    address: '西湖区湖底公园1号'
+                }, {
+                    key: '2',
+                    name: '胡彦祖',
+                    age: 42,
+                    address: '西湖区湖底公园1号'
+                }]
+            },
+            //配置模块，最外层，可以是组合模块。也可以定义配置模块的各种组合。
+            components: {
+                sooil_table: sooilUI.aTable,
+                sooil_badge: sooilUI.aBadge,
+                sooil_button: sooilUI.aButton,
+                sooil_icon: sooilUI.aIcon,
+                sooil_checkbox: sooilUI.aCheckbox,
+                sooil_inputnumber: sooilUI.aInputNumber
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>数据展示功能</title>
+    <meta charset="utf-8">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.css">
+    <link rel="stylesheet" href="../Js/lib/jstree/css/jstree.min.css">
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/lib/jstree/js/jstree.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+</head>
+<body>
+<!--<div id="showinglist">-->
+    <so:showinglist :id="showinglist1" :totalTitle="title" :data="data"
+                  :count="count" :onLoadMore="onLoadMore" :onItemClick="onItemClick" :onSelect="onSelect">
+    </so:showinglist>
+<!--</div>-->
+
+<script>
+    var list;
+    function getdata(count) {
+        $.ajax({
+            url: '../../Mock/showingList.json',
+            type:"get",
+            dataType:"json",
+            async:false,
+            success: function (data) {
+                if(data.subtitle){
+                    for(var i=0; i<data.subtitle.length;i++){
+                        if(data.subtitle[i].isLoadMore=="true"){
+                            data.subtitle[i].content=data.subtitle[i].content.slice(0,count);
+                        }
+                    }
+                }
+                list=data;
+                console.log(list)
+            },
+            error:function () {
+                alert("error");
+            }
+        });
+        return list;
+    }
+
+    var title="相关目标";
+    var count=5;
+    var data=getdata(5);
+
+    var onLoadMore=function (index) {
+        var result=getdata();
+        this.data.subtitle[index].content=result.subtitle[index].content;
+        return this.data;
+    };
+
+    var onItemClick=function (result) {
+        alert("当前点击的项是：" + result);
+    };
+
+    var onSelect = function(node) {
+        var id = node.id;
+        var text = node.text;
+        var parent = node.parent;
+        var value = node.original.value;
+        alert("节点id:" + id + "\n节点text:" + text + "\n父节点id:" + parent + "\n节点value:" + value);
+    }
+//
+//    var vm = soUIDev.bind({
+//        scope: "showinglist",
+//        model:"so:showinglist",
+//    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "tiptitle": "Sooil为你找到相关结果3995个，耗时1.05秒",
+  "droptitle": "筛选条件",
+  "datalist": [
+    {
+      "filter":"time",
+      "title": "时间",
+      "checkbox": false,
+      "droplist": [
+        {  "text": "一小时内"  },{  "text": "一天内"  }, {  "text": "一周内"   } ]
+    },
+    {
+      "filter":"ahuor",
+      "title": "作者",
+      "checkbox": true,
+      "droplist": [
+        {"text": "张三"},
+        {"text": "李四"},
+        {"text": "孙五"}  ]
+    }
+  ]
+}

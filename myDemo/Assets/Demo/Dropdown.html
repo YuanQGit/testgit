@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>下拉</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+</head>
+
+<body>
+<div id="filtrate">
+    <div style="width: auto ;padding:30px 30px;display:block">
+        <so:dropdown :filter="filter" :data="droplist" :title="title" :checkbox="true" :onclick="txtclick" >
+        </so:dropdown>
+    </div>
+</div>
+<script type="text/javascript">
+var droplist=[
+        {"text": "张三", "value":"1","count": 2602},
+        {"text": "李四", "value":"1","count": 1357},
+        {"text": "王五", "value":"1","count": 554},
+        {"text": "吴六", "value":"1","count": 354}];
+var title="作者";
+var filter="athor";
+function  txtclick(data) {
+    var ss=data.data[0];
+    alert("你点击的第一项是"+data.data[0].text);
+};
+
+soUIDev.bind({
+    scope:"filtrate",
+    model:"so:dropdown"
+});
+
+//    $.ajax({
+//        url: "../../Mock/dropdwon.json",
+//        type: "get",
+//        dataType: "json",
+//        success: function (data) {
+//            vm.$data.title = data.title;
+//            vm.$data.ischeckbox = data.ischeckbox;
+//            vm.$data.droplist = data.droplist;
+//            soUIDev.bindViewModel(vm, "athorDown");
+//        }
+//    });
+</script>
+</body>
+</html>

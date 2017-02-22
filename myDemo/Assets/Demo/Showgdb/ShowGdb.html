@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GDBSHOW(需要安装JoGIS_XJCL组件3.6.0.7)</title>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="gdb">
+    <so:gdb :url="url" :style="width:600px;height:700px">
+    </so:gdb>
+</div>
+<script>
+        function getpath() {
+            //获取当前网址
+            var curWwwPath=window.document.location.href;
+            //获取主机地址之后的目录
+            var pathName=window.document.location.pathname;
+            var pos=curWwwPath.indexOf(pathName);
+            //获取主机地址
+            var localhostPaht=curWwwPath.substring(0,pos);
+            //获取带"/"的项目名
+            var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+
+            //获取项目路径
+            var realPath=localhostPaht+projectName;
+           return realPath;
+        }
+    var url=getpath()+"/Mock/GdbTest.gdb";
+    soUIDev.bind({
+        scope: "gdb",
+       model:"so:gdb"
+    })
+</script>
+</body>
+</html>

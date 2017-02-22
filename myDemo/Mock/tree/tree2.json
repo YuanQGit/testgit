@@ -1,0 +1,6 @@
+  [
+      { "id": 38, "parentId": "#", "text": "盆地", "value": "盆地_value", "state": { "selected": false, "opened": true } },
+      { "id": 39, "parentId": 38, "text": "陆相沉积盆地", "value": "陆相沉积盆地_value", "state": { "selected": true, "opened": false } },
+      { "id": 40, "parentId": 38, "text": "海相沉积盆地", "value": "海相沉积盆地_value", "state": { "selected": false, "opened": true } },
+      { "id": 41, "parentId": 40, "text": "盆地/一级构造单元", "value": "value", "state": { "selected": true, "opened": true } }
+  ]

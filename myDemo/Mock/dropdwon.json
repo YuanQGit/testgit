@@ -1,0 +1,8 @@
+{
+"title": "作者",
+"ischeckbox": true,
+"filtertype":"cterator",
+"droplist": [{"name": "张三", "count": 2602},{"name": "李四", "count": 1357},
+{"name": "王五", "count": 554},
+{"name": "吴六", "count": 354}]
+}

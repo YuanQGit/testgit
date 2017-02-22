@@ -1,0 +1,177 @@
+{
+    "showarea": {
+        "data": [
+            { "id": "G1", "key": "", "value": "../../Img/2.jpg", "type": "img" },
+            { "id": "G2", "key": "目标", "value": "珠江口盆地", "type": "text" },
+            { "id": "G3", "key": "来源", "value": "cnki", "type": "text" },
+            { "id": "G4", "key": "地区", "value": "中国南海", "type": "text" },
+            { "id": "G5", "key": "语种", "value": "中文", "type": "text" },
+            { "id": "G6", "key": "单位", "value": "中国石化石油勘探开发研究院", "type": "text" },
+            { "id": "G7", "key": "作者", "value": "杜家元", "type": "text" },
+            { "id": "G8", "key": "时间", "value": "2014/6/20", "type": "text" },
+            { "id": "G9", "key": "格式", "value": "pdf", "type": "text" },
+            { "id": "G10", "key": "关键词", "value": "盆地圈闭综合研究报告 石油地质特征/圈闭", "type": "text" }
+        ],
+        "layouts": [
+            [{ "id": "G1", "css": "", "rowspan": 3, "colspan": "2" },
+                { "id": "G2", "css": "", "rowspan": 1, "colspan": "1" }
+            ],
+            [
+                { "id": "G3", "css": "", "rowspan": 1, "colspan": "1" }
+            ],
+            [{ "id": "G4", "css": "", "rowspan": 1, "colspan": "1" }],
+            [
+                { "id": "G5", "css": "", "rowspan": 1, "colspan": "1" },
+                { "id": "G6", "css": "", "rowspan": 1, "colspan": "1" }
+            ],
+            [
+                { "id": "G7", "css": "", "rowspan": 1, "colspan": "1" },
+                { "id": "G8", "css": "", "rowspan": 1, "colspan": "1" }
+            ],
+            [
+                { "id": "G9", "css": "", "rowspan": 1, "colspan": "1" },
+                { "id": "G10", "css": "", "rowspan": 1, "colspan": "1" }
+            ]
+        ]
+    },
+
+    "tabs": [
+        {
+            "title": "育婴网",
+            "items": [
+                {
+                    "format": "pdf",
+                    "title": "怀孕管家",
+                    "url": "../Demo.html"
+                },
+                {
+                    "format": "gif",
+                    "title": "宝宝树",
+                    "url": "./Antd/aButton.html"
+                },
+                {
+                    "format": "ioc",
+                    "title": "淘淘网",
+                    "url": "./Antd/aCheckbox.html"
+                }
+            ]
+        },
+        {
+            "title": "教育网",
+            "items": [
+                {
+                    "format": "pdf",
+                    "title": "尚学堂",
+                    "url": "./Antd/aIcon.html"
+                },
+                {
+                    "format": "doc",
+                    "title": "网易课堂",
+                    "url": "./Antd/aInputnumber.html"
+                },
+                {
+                    "format": "gif",
+                    "title": "百度课堂",
+                    "url": "./Antd/aLayout.html"
+                }
+            ]
+        },
+        {
+            "title": "社交网",
+            "items": [
+                {
+                    "format": "pdf",
+                    "title": "尚学堂",
+                    "url": "./Antd/aIcon.html"
+                },
+                {
+                    "format": "doc",
+                    "title": "网易课堂",
+                    "url": "./Antd/aInputnumber.html"
+                },
+                {
+                    "format": "gif",
+                    "title": "百度课堂",
+                    "url": "./Antd/aLayout.html"
+                }
+            ]
+        },
+        {
+            "title": "安全网",
+            "items": [
+                {
+                    "format": "pdf",
+                    "title": "尚学堂",
+                    "url": "./Antd/aIcon.html"
+                },
+                {
+                    "format": "doc",
+                    "title": "网易课堂",
+                    "url": "./Antd/aInputnumber.html"
+                },
+                {
+                    "format": "gif",
+                    "title": "百度课堂",
+                    "url": "./Antd/aLayout.html"
+                }
+            ]
+        },
+        {
+            "title": "娱乐网",
+            "items": [
+                {
+                    "format": "pdf",
+                    "title": "金蚂蚁",
+                    "url": "./commentList.html"
+                },
+                {
+                    "format": "ioc",
+                    "title": "优酷",
+                    "url": "./DisplayView.html"
+                },
+                {
+                    "format": "doc",
+                    "title": "头条",
+                    "url": "./Filter.html"
+                }
+            ]
+        }
+    ],
+
+    "showinglist": {
+        "title": ["珠江口盆地", "准格尔盆地", "四川盆地"],
+        "subtitle": [{
+                "title": "【相关的 盆地】",
+                "content": ["柴达木盆地", "四川盆地", "准噶尔盆地", "吐鲁番盆地", "埃克森美孚", "道达尔公司", "雪佛龙公司"],
+                "type": "horizontal",
+                "isLoadMore": "true"
+            },
+            {
+                "title": "【相关的 盆地】",
+                "content": ["盆地资源分布图", "资源评价参数表", "油气储量统计表", "盆地评价单元划分图", "勘探潜力分布图", "盆地油气资源数据", "油气储量直方图"],
+                "type": "vertical",
+                "isLoadMore": "true"
+            },
+            {
+                "title": "【tree】",
+                "content": [
+                    { "id": 38, "parentId": "#", "text": "盆地", "value": "盆地_value" },
+                    { "id": 40, "parentId": 38, "text": "海相沉积盆地", "value": "海相沉积盆地_value" },
+                    { "id": 41, "parentId": 42, "text": "盆地/一级构造单元", "value": "value" },
+                    { "id": 42, "parentId": 38, "text": "隆起", "value": "value" },
+                    { "id": 43, "parentId": 38, "text": "地垒", "value": "value" },
+                    { "id": 44, "parentId": "#", "text": "坳陷", "value": "value" },
+                    { "id": 45, "parentId": 38, "text": "地堑", "value": "value" },
+                    { "id": 46, "parentId": 39, "text": "斜坡", "value": "value" },
+                    { "id": 53, "parentId": null, "text": "盆地/亚一级构造单元", "value": "value" },
+                    { "id": 55, "parentId": 53, "text": "凸起", "value": "value" },
+                    { "id": 57, "parentId": 53, "text": "凹陷", "value": "value" },
+                    { "id": 58, "parentId": 53, "text": "长垣", "value": "value" },
+                    { "id": 63, "parentId": null, "text": "阶地", "value": "value" }
+                ],
+                "type": "tree",
+                "isLoadMore": "false"
+            }
+        ]
+    }
+}

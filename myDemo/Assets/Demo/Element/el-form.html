@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单组件</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="../../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!--&lt;!&ndash; jQuery文件。务必在bootstrap.min.js 之前引入 &ndash;&gt;-->
+   <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+
+</head>
+<body>
+<style >
+    input[type=file] {
+        display: none;
+    }
+</style>
+<div id="el" style="width:600px">
+    <elform :text="test名称"></elform>
+</div>
+<!--<button class="btn btn-primary" onclick="test()">test</button>-->
+<div id="test"></div>
+<script>
+    soUIDev.bind({
+        scope: "el",
+        model: "elform"
+    });
+</script>
+
+</body>
+</html>

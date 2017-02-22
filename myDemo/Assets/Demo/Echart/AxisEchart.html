@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bar</title>
+
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+    <div id="bar">
+        <so:axisechart :legend="legend"
+                        :data="data"
+                        :height="500px"
+                        :width="700px"
+                        :mainTitle="2016年世界GDP"
+                        :subHead="中国最强"
+                        :xAxis="xAxisData">
+        </so:axisechart>
+    </div>
+    <script>
+        var legend=["中国","美国","欧盟","俄罗斯","小日本"];
+        var data=[[10000,10100,10300,10800],[8000,7900,7500,7000],[5000,4900,4700,4200],[3000,2900,3100,3200],[250,250,250,250]];
+        var xAxisData=["第一季度","第二季度","第三季度","第四季度"];
+        soUIDev.bind({
+            scope:"bar",
+            model:"so:axisechart"
+        })
+    </script>
+</body>
+</html>

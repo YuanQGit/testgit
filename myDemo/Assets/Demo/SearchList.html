@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>sousuo</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/soUIDev.js"></script>
+</head>
+<style>
+    * {
+        font-family: '微软雅黑', arial, verdana, sans-serif;
+        font-size: 14px;
+    }
+    #searchlist{
+        margin: 20px 5px 50px 100px;
+        width: 60%;
+    }
+</style>
+
+<body>
+    <!--filters: Array,-->
+    <!--data: Array,-->
+    <!--strtemplate:String,-->
+    <!--highlight:Array,-->
+    <!--size: Number,-->
+    <!--count: Number,-->
+    <!--onpager: Function,-->
+    <!--onclick: Function,-->
+    <!--onfilterclean: Function,-->
+    <!--onfilterclick:Function-->
+    <div id="list">
+        <so:searchlist :filters="filterlist" :data="datalist" :highlight="key" :titletemplate="strtemplate" :showfilter="showfilter"
+            :allowpaging="allowpaging" :size="size" :count="count" :onselectpage="Pager" :onitemclick="TitleClick" :onfilterclear="Clean"
+            :onfilterclick="TxtClick">
+            <a href="#" style="padding-left:10px" slot="collect">
+<img src="../img/save.png" /><span>收藏</span>
+</a>
+</so:searchlist>
+</div>
+<script type="text/javascript">
+    var vm = soUIDev.bind({
+        scope: "list",
+        model: "so:searchlist"
+    });
+    var showfilter = true;
+    var allowpaging = true;
+    var list = [];
+    var filterlist = [];
+    var datalist = [];
+    var count = "54";
+    var size = 10;
+    var key = [];
+    var strtemplate = "<h4><span><#=  '这是一个标题模板'<img src='../img/save.png'/></span> #></h4>";
+
+    function Pager(pageIndex) {
+        var startIndex = (pageIndex - 1) * vm.$data.size;
+        vm.$data.datalist = list.slice(startIndex, startIndex + vm.$data.size);
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    }
+    function TitleClick(value) {
+        debugger
+        alert(value);
+    }
+    function Clean() {
+        debugger
+        alert("这是清除");
+    }
+    function TxtClick(value) {
+        debugger
+        alert(value.data[0].text);
+    }
+    $.ajax({
+        url: "../../Mock/searchlist.json",
+        dataType: "json",
+        type: "get",
+        success: function (data) {
+            list = data.datalist;
+            vm.$data.datalist = data.datalist.slice(0, size);
+            vm.$data.filterlist = data.filterlist;
+            vm.$data.key = data.key;
+            vm.$data.size = 10;
+            vm.$data.showfilter = true;
+            vm.$data.allowpaging = true;
+            vm.$data.count = list.length;
+        }
+    });
+</script>
+</body>
+
+</html>

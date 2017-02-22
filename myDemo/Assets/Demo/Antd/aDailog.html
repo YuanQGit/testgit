@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../Js/lib/vue.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="dailog">
+    <div>
+        <p>
+            <so:a_button :type="'primary'" :onclick="_onClick">show dialog</so:a_button>
+        </p>
+        <so:a_dialog :title="'第二个弹框'" :animation="'zoom'" :mask-animation="'fade'"
+                :style="style"
+                :visible="visible" :prefix-cls="'ant-modal'"
+                :align="align"
+                :on-close="_onClose" :mask-transition-name=""
+                :mouse-position="mousePosition" :on-after-close="close">
+            <input />
+            <p>basic modal</p>
+            <input type="button" @click="_changeWidth" value="change">
+            <div style="{height: 200px}"></div>
+        </so:a_dialog>
+    </div>
+</div>
+<script>
+    var mousePosition={
+        x:200,y:200
+    }
+    var visible=false;
+    var style={width:'200px'};
+    var align={
+        points: ['tc', 'tc'],
+        offset: [30, 100]
+    };
+    var _onClick=function () {
+        this.visible=true;
+    };
+    var _onClose=function () {
+        this.visible=false;
+    };
+    var _changeWidth=function () {
+        alert(1);
+        this.style={width:'300px'};
+    };
+    var close=function () {
+return
+    };
+    var vm=soUIDev.bind({
+        scope:'dailog',
+
+        model:["so:a_dialog",'so:a_button'],
+        methods:{
+             _changeWidth:function () {
+                this.style={width:'600px'};
+            }
+        }
+    })
+</script>
+</body>
+</html>

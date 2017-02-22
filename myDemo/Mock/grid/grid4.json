@@ -1,0 +1,29 @@
+{
+    "fields": [
+        { "name": "id", "title": "流水号", "type": "string", "key": true, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "" },
+        { "name": "name", "title": "姓名", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": null, "operationTemplate": "<span style='color:red'><#= name#></span>$<span style='color:blue'><#= name.length>4?'long':'short'#></span>" },
+        { "name": "math", "title": "数学", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "" },
+        { "name": "chinese", "title": "语文", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "" },
+        {
+            "name": "english",
+            "title": "英语",
+            "type": "string",
+            "key": false,
+            "visible": true,
+            "sortable": false,
+            "ascendingOrder": null,
+            "operationTemplate": "<h4><#=  english >90?'perfact':english >80&&english<=90?'good':'normal' #></h4>"
+        },
+        { "name": "operate", "title": "操作", "type": "string", "key": false, "visible": true, "sortable": false, "ascendingOrder": null, "operationTemplate": "<button onclick='partParameters(<#= id#>,<#= name#>)'>获取部分参数</button>$<button onclick='allParameters()'>获取全部参数</button> " }
+    ],
+    "records": [
+        { "id": 1, "name": "wangly", "math": 18, "chinese": 80, "english": 91 },
+        { "id": 2, "name": "lixx", "math": 28, "chinese": 80, "english": 90 },
+        { "id": 3, "name": "xiaob", "math": 38, "chinese": 80, "english": 89 },
+        { "id": 4, "name": "liucz", "math": 48, "chinese": 80, "english": 88 },
+        { "id": 5, "name": "xiongy", "math": 58, "chinese": 80, "english": 87 },
+        { "id": 6, "name": "kuq", "math": 68, "chinese": 80, "english": 86 },
+        { "id": 7, "name": "liyz", "math": 78, "chinese": 80, "english": 85 }
+    ],
+    "selectedKeys": ["2", "8", "9"]
+}

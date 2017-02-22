@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <script src="../../Js/lib/vue.js"></script>
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="sooil" class="markdown view">
+    <h1 id="alert">Table</h1>
+    <hr>
+    <p>展示行列数据。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当有大量结构化的数据需要展现时；</li>
+        <li>当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。</li>
+    </ul>
+    <h2>如何使用</h2>
+    <ul>
+        <li>Table 有两种模式，本地数据和远程数据模式。</li>
+        <li>本地数据模式是指数据一次性载入内存，纯前端进行分页、筛选、排序等功能。</li>
+        <li>通过指定表格的数据源 dataSource 为一个数据数组。</li>
+        <li>远程数据模式是更常见的业务场景，是一次只从服务端读取一页的数据放在前端，执行筛选、排序、切换页码等操作时均向后台发送请求，后台返回当页的数据和相关分页信息。</li>
+        <li>通过指定表格的数据源 dataSource 为一个 DataSource 的实例如下。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>简单实用</h3>
+        <br/>
+        <so:a_table :columns="data" :data-source="dataSource"></so:a_table>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_table :columns=&quot;data&quot; :data-source=&quot;dataSource&quot;&gt;&lt;/so:a_table&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <h3>Table</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>rowSelection</td>
+            <td>列表项是否可选择</td>
+            <td>Object</td>
+            <td></td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>pagination</td>
+            <td>分页器</td>
+            <td>Object</td>
+            <td>配置项参考 pagination，设为 false 时不显示分页</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>size</td>
+            <td>正常或迷你类型</td>
+            <td>String</td>
+            <td>normal or small</td>
+            <td>normal</td>
+        </tr>
+        <tr>
+            <td>dataSource</td>
+            <td>数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式）</td>
+            <td>Array or Object</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>columns</td>
+            <td>表格列的配置描述，具体项见下表</td>
+            <td>Array</td>
+            <td></td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>rowKey</td>
+            <td>表格列 key 的取值</td>
+            <td>Function(recode, index):string</td>
+            <td></td>
+            <td>record.key</td>
+        </tr>
+        <tr>
+            <td>expandIconAsCell</td>
+            <td>设置展开 Icon 是否单独一列</td>
+            <td>Boolean</td>
+            <td></td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>onChange</td>
+            <td>分页、排序、筛选变化时触发</td>
+            <td>Function(pagination, filters, sorter)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Column</h3>
+    列描述数据对象，是 columns 中的一项。
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>title</td>
+            <td>列头显示文字</td>
+            <td>String or React.Element</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>dataIndex</td>
+            <td>列数据在 data 中对应的 key</td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>key</td>
+            <td>React 需要的 key</td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>render</td>
+            <td>生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引</td>
+            <td>Function(text, record, index) {}</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>filters</td>
+            <td>表头的筛选菜单项</td>
+            <td>Array</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>onFilter</td>
+            <td>本地模式下，确定筛选的运行函数</td>
+            <td>Function</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>sorter</td>
+            <td>排序函数，本地模式下为一个函数，远程模式下为布尔值</td>
+            <td>Function or Boolean</td>
+            <td></td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>列宽度</td>
+            <td>String or Number</td>
+            <td></td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>message</td>
+            <td>变化时回调函数</td>
+            <td>Function(e:Event)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>dataSource</h3>
+    远程数据源配置对象。
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>url</td>
+            <td>数据源地址</td>
+            <td>String</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>resolve</td>
+            <td>获得数据的解析函数，接收参数为远程数据返回的 result</td>
+            <td>Function</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>getPagination</td>
+            <td>和后台接口返回的分页数据进行适配的函数，返回值会传给表格中的分页器</td>
+            <td>Function</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>getParams</td>
+            <td>和后台接口接收的参数进行适配，返回值会作为请求的参数发送</td>
+            <td>Function</td>
+            <td></td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+    <script type="text/javascript">
+            var data = [{title:"姓名",dataIndex:'name'},{title:"年龄",dataIndex:'age'},{title:"地址",dataIndex:'address'}];
+            var dataSource = [{
+                    key: '1',
+                    name: '袁权',
+                    age: 24,
+                    address: '武汉市江夏区智慧园'},
+                {
+                    key: '2',
+                    name: '小明',
+                    age: 23,
+                    address: '武汉市江夏区智慧园',
+                }];
+
+
+        soUIDev.bind({
+            scope:"sooil",
+            model:"so:a_table"
+        });
+
+    </script>
+</body>
+</html>

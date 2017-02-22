@@ -1,0 +1,12 @@
+  [
+      { "id": 38, "parentId": "#", "text": "盆地", "value": "盆地_value", "state": { "selected": false, "opened": true } },
+      { "id": 39, "parentId": 38, "text": "陆相沉积盆地", "value": "陆相沉积盆地_value", "state": { "selected": false, "opened": false } },
+      { "id": 40, "parentId": 38, "text": "海相沉积盆地", "value": "海相沉积盆地_value", "state": { "selected": true, "opened": true } },
+      { "id": 41, "parentId": 42, "text": "盆地/一级构造单元", "value": "value", "state": { "selected": false, "opened": true } },
+      { "id": 42, "parentId": 39, "text": "隆起", "value": "value", "state": { "selected": false, "opened": true } },
+      { "id": 44, "parentId": "#", "text": "坳陷", "value": "value", "state": { "selected": true, "opened": true } },
+      { "id": 45, "parentId": 38, "text": "地堑", "value": "value", "state": { "selected": false, "opened": true } },
+      { "id": 53, "parentId": null, "text": "盆地/亚一级构造单元", "value": "value", "state": { "selected": false, "opened": false } },
+      { "id": 55, "parentId": 53, "text": "凸起", "value": "value", "state": { "selected": false, "opened": true } },
+      { "id": 63, "parentId": null, "text": "阶地", "value": "value", "state": { "selected": false, "opened": true } }
+  ]

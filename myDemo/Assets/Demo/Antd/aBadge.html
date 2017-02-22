@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>徽标数</title>
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUI.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+    <style>
+        .head-example {
+            width: 42px;
+            height: 42px;
+            border-radius: 6px;
+            background: #eee;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="sooil" class="markdown view">
+        <h1 id="alert">Badge</h1>
+        <hr>
+        <p>图标右上角的圆形徽标数字。</p>
+        <h2>何时使用</h2>
+        <ul>
+            <li>一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。</li>
+        </ul>
+        <h2>组件演示</h2>
+        <div class="code-box">
+            <h3>进度条</h3>
+            <br/>
+            <a href="#">
+                <so:a_badge :dot="true" :id="a1" :data-a="aaa">
+                    <span class="head-example"></span>
+                </so:a_badge>
+            </a>
+            <so:a_badge :id="a2" :data-b="bbb" :count="5">
+                <a href="javascript:;" class="head-example"></a>
+            </so:a_badge>
+
+
+            <so:a_badge :id="a3" :count="200">
+                <a href="javascript:;" class="head-example"></a>
+            </so:a_badge>
+            <div class="code-box-word">
+                    <pre>
+                        <code class="" style="margin-top: -10px;">
+&lt;a href=&quot;#&quot;&gt;
+    &lt;so:a_badge :dot=&quot;true&quot;&gt;
+        &lt;span class=&quot;head-example&quot;&gt;&lt;/span&gt;
+    &lt;/so:a_badge&gt;
+&lt;/a&gt;
+&lt;so:a_badge :count=&quot;5&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;head-example&quot;&gt;&lt;/a&gt;
+&lt;/so:a_badge&gt;
+
+
+&lt;so:a_badge :count=&quot;200&quot;&gt;
+    &lt;a href=&quot;javascript:;&quot; class=&quot;head-example&quot;&gt;&lt;/a&gt;
+&lt;/so:a_badge&gt;
+                        </code>
+                    </pre>
+            </div>
+        </div>
+
+
+        <h2 id="api">API</h2>
+        <h3>Progress Bar</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>参数</th>
+                <th>说明</th>
+                <th>类型</th>
+                <th>可选值</th>
+                <th>默认值</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>count</td>
+                <td>展示的数字，大于 99 时显示为 99+</td>
+                <td>Number</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>dot</td>
+                <td>不展示数字，只有一个小红点</td>
+                <td>boolean</td>
+                <td></td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        // soUI.isAutoLoadUI = false;
+        // var vm = soUI.bind({
+        //     scope:"sooil",
+        //     model:"so:a_badge"
+        // });
+        // debugger;
+    </script>
+</body>
+
+</html>

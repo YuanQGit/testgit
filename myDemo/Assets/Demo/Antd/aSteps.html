@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>步骤</title>
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Steps</h1>
+    <hr>
+    <p>引导用户按照流程完成任务的导航条。</p>
+    <h2>何时使用</h2><br>
+    当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。<br>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>简单的步骤条</h3>
+        <br/>
+        <so:a_steps :current="1">
+            <so:a_step title="已完成" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="进行中" description="这里是多信息的耶哦耶哦哦耶哦耶"></so:a_step>
+            <so:a_step title="有一个待运行" description="描述啊描述啊"></so:a_step>
+            <so:a_step title="待运行" description="这里是多信息的描述啊"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps :current=&quot;1&quot;&gt;
+    &lt;so:a_step title=&quot;已完成&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;进行中&quot; description=&quot;这里是多信息的耶哦耶哦哦耶哦耶&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;有一个待运行&quot; description=&quot;描述啊描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>迷你版</h3>
+        <br/>
+        <so:a_steps size="small" :current="1">
+            <so:a_step title="已完成" status="finish"></so:a_step>
+            <so:a_step title="进行中" status="process"></so:a_step>
+            <so:a_step title="待运行" status="wait"></so:a_step>
+            <so:a_step title="待运行" status="wait"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps size=&quot;small&quot; :current=&quot;1&quot;&gt;
+    &lt;so:a_step title=&quot;已完成&quot; status=&quot;finish&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;进行中&quot; status=&quot;process&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; status=&quot;wait&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; status=&quot;wait&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>带ICON图标的步骤条</h3>
+        <br/>
+        <so:a_steps>
+            <so:a_step title="步骤1" status="finish" icon="cloud"></so:a_step>
+            <so:a_step title="步骤2" status="process" icon="apple"></so:a_step>
+            <so:a_step title="步骤3" status="wait" icon="github"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps&gt;
+    &lt;so:a_step title=&quot;步骤1&quot; status=&quot;finish&quot; icon=&quot;cloud&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;步骤2&quot; status=&quot;process&quot; icon=&quot;apple&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;步骤3&quot; status=&quot;wait&quot; icon=&quot;github&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>切换到下一步</h3>
+        <br/>
+        <div>当前正在执行第 3 步</div>
+        <br>
+        <so:a_steps :current="currentStep">
+            <so:a_step title="步骤1"></so:a_step>
+            <so:a_step title="步骤2"></so:a_step>
+            <so:a_step title="步骤3"></so:a_step>
+        </so:a_steps>
+        <br>
+        <div>
+            <so:a_button :onclick="_next">下一步</so:a_button>
+        </div>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps :current=&quot;currentStep&quot;&gt;
+    &lt;so:a_step title=&quot;步骤1&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;步骤2&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;步骤3&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>竖直方向的步骤条</h3>
+        <br/>
+        <so:a_steps direction="vertical" :current="1">
+            <so:a_step title="已完成" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="进行中" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="待运行" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="又一个待运行" description="这里是多信息的描述啊"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps direction=&quot;vertical&quot; :current=&quot;1&quot;&gt;
+    &lt;so:a_step title=&quot;已完成&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;进行中&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;又一个待运行&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>竖直方向的小型步骤条</h3>
+        <br/>
+        <so:a_steps size='small' direction="vertical" :current="1">
+            <so:a_step title="已完成" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="进行中" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="待运行" description="这里是多信息的描述啊"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps size=&#x27;small&#x27; direction=&quot;vertical&quot; :current=&quot;1&quot;&gt;
+    &lt;so:a_step title=&quot;已完成&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;进行中&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>自定义状态</h3>
+        <br/>
+        <so:a_steps>
+            <so:a_step title="已完成" status="finish" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="进行中" status="process" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="待运行" status="wait" description="这里是多信息的描述啊"></so:a_step>
+            <so:a_step title="又一个待运行" status="wait" description="这里是多信息的描述啊"></so:a_step>
+        </so:a_steps>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_steps&gt;
+    &lt;so:a_step title=&quot;已完成&quot; status=&quot;finish&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;进行中&quot; status=&quot;process&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;待运行&quot; status=&quot;wait&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+    &lt;so:a_step title=&quot;又一个待运行&quot; status=&quot;wait&quot; description=&quot;这里是多信息的描述啊&quot;&gt;&lt;/so:a_step&gt;
+&lt;/so:a_steps&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <h2 id="api">API</h2>
+    <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;v-steps&gt;
+  &lt;v-step title=&quot;第一步&quot;&gt;&lt;/v-step&gt;
+  &lt;v-step title=&quot;第二步&quot;&gt;&lt;/v-step&gt;
+  &lt;v-step title=&quot;第三步&quot;&gt;&lt;/v-step&gt;
+&lt;/v-steps&gt;
+                    </code>
+                </pre>
+    </div>
+
+    <h3>Steps</h3><br>
+    整体步骤条。<br>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>current</td>
+            <td>可选参数，指定当前处理正在执行状态的步骤，从0开始记数。在子Step元素中，可以通过status属性覆盖状态。</td>
+            <td>number</td>
+            <td>无</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>size</td>
+            <td>可选参数，指定大小（目前只支持普通和迷你两种大小）。</td>
+            <td>string</td>
+            <td>small, default</td>
+            <td>default</td>
+        </tr>
+        <tr>
+            <td>direction</td>
+            <td>可选参数，指定步骤条方向（目前支持水平和竖直两种方向，默认水平方向）。</td>
+            <td>string</td>
+            <td>vertical</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>maxDescriptionWidth</td>
+            <td>可选参数，指定步骤的详细描述文字的最大宽度。</td>
+            <td>number</td>
+            <td>无</td>
+            <td>100</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Steps.Step</h3><br>
+    步骤条内的每一个步。<br>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>status</td>
+            <td>可选参数，指定状态。当不配置该属性时，会使用父Steps元素的current来自动指定状态。</td>
+            <td>string</td>
+            <td>wait, process, finish</td>
+            <td>wait</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>必要参数，标题。</td>
+            <td>string/jsx</td>
+            <td>无</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>可选参数，步骤的详情描述。</td>
+            <td>string/jsx</td>
+            <td>无</td>
+            <td>空</td>
+        </tr>
+        <tr>
+            <td>icon</td>
+            <td>可选参数，步骤的Icon。如果不指定，则使用默认的样式。</td>
+            <td>string/jsx</td>
+            <td>无</td>
+            <td>空</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var currentstep=1;
+    var _next=function () {
+        alert(currentstep);
+        if(currentstep>=2){
+            currentstep=0;
+        }else {
+            currentstep+=1;
+        }
+    }
+    soUIDev.bind({
+        scope:'sooil',
+        model:['so:a_steps','so:a_step','so:a_button']
+    })
+</script>
+</body>
+</html>

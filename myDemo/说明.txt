@@ -1,0 +1,4 @@
+testgit\myDemo\Assets\Js
+-----文件夹 存放打包之后的js文件
+
+testgit\myDemo\Assets\Demo   ----各个demo路径

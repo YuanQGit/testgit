@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltip</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link rel="stylesheet" href="../../Js/lib/strap/css/strapDemo.css">
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Tooltip</h1>
+    <hr>
+    <p>简单的文字提示气泡框</p>
+    <h2>何时使用</h2>
+    <ul class="usertime">
+        <li>鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本用法</h3>
+        <br/>
+        <so:s_tooltip effect="scale"  content="Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod">
+            <button class="btn btn-default">tooltip on bottom</button>
+        </so:s_tooltip>
+
+        <div class="code-box-word">
+				<pre>
+                    <code class="">
+       &lt;so:s_tooltip effect=&quot;scale&quot;  content=&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit, sed do eiusmod&quot;&gt;
+            &lt;button class=&quot;btn btn-default&quot;&gt;tooltip on bottom&lt;/button&gt;
+        &lt;/so:s_tooltip&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">API</h2>
+    <h3>Tooltip</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>成员</th>
+            <th>值类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>trigger</td>
+            <td>String(click focus hover contextmenu)</td>
+            <td>hover</td>
+            <td>文字提示气泡框的触发事件</td>
+        </tr>
+        <tr>
+            <td>effect</td>
+            <td>String(scale fadein)</td>
+            <td>scale</td>
+            <td>气泡框动画</td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>String</td>
+            <td>''</td>
+            <td>气泡框提示文字</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script>
+
+    soUIDev.bind({
+        scope:"sooil",
+        model:'so:s_tooltip'
+    })
+</script>
+</body>
+</html>

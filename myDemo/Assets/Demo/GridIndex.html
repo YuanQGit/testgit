@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.min.css">
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/GtSubmit.js"></script>
+
+    <style>
+        .gridClass {
+            background-color: cornflowerblue
+        }
+    </style>
+</head>
+
+<body>
+    <h3>表格</h3>
+
+    <br>
+    <p>用例9：id,data,showCheckbox,pageSize,count,onsort,onSelectPage</p>
+    <button onclick="getSelectsId9()">获取选中的id</button>
+    <p>预期结果：多页显示，排序（id），有模板，复选框的预加载和状态保存，外部更新数据</p>
+    <p>实际结果： 可排序，可模板，复选框可操作，外部可更新数据</p>
+    <so:datagrid :id="grid9" :data="data9" :showCheckbox="true" :pageSize="4" :count="9" :onSort="sort9" :onSelectPage="selectpage9"></so:datagrid>
+
+    <br>
+    <p>用例8：id,data,showCheckbox,pageSize,count</p>
+    <button onclick="getSelectsId8()">获取选中的id</button>
+    <p>预期结果：多页显示，排序（id,name），有模板，复选框的预加载和状态保存</p>
+    <p>实际结果：可排序，可模板，复选框可操作</p>
+    <so:datagrid :id="grid8" :data="data8" :showCheckbox="true" :pageSize="4" :count="9"></so:datagrid>
+
+    <br>
+    <p>用例7：id,data,pageSize,onSort,onSelectPage</p>
+    <p>预期结果：多页显示，排序(id,name)，有模板，外部更新数据</p>
+    <p>实际结果：可排序，可模板，外部可更新数据</p>
+    <so:datagrid :id="grid7" :data="data7" :pageSize="2" :onSort="sort7" :onSelectPage="selectpage7"></so:datagrid>
+
+    <br>
+    <p>用例6：id,data,pageSize</p>
+    <button onclick="changeData_6()">异步更新数据</button><br>
+    <p>预期结果：异步加载数据，多页显示，排序(id,name)，有模板</p>
+    <p>实际结果：可显示，可排序，可模板</p>
+    <so:datagrid :id="grid6" :showCheckbox="true" :data="data6" :pageSize="2"></so:datagrid>
+
+    <br>
+    <p>用例_6：id,data,pageSize</p>
+    <button onclick="getSelectsId6()">获取选中的id</button>
+    <p>预期结果：同步加载数据，多页显示，排序(id,name)，有模板</p>
+    <p>实际结果：可显示，可排序，可模板</p>
+    <so:datagrid :id="grid_6" :showCheckbox="true" :data="data_6" :pageSize="2"></so:datagrid>
+
+    <br>
+    <p>用例5：id,data,pageSize</p>
+    <p>预期结果：多页显示，不排序，有模板</p>
+    <p>实际结果：可显示，可模板</p>
+    <so:datagrid :id="grid5" :data="data5" :pageSize="2" :count="7"></so:datagrid>
+
+    <br>
+    <p>用例4：id,data,dataset,onSort</p>
+    <p>预期结果：一页显示，排序（name），有模板，外部更新数据</p>
+    <p>实际结果：可排序，可模板，外部可更新数据</p>
+    <so:datagrid :id="grid4" :data="data4" :showCheckbox="true" :data-key1="value1" :onSort="sort4"></so:datagrid>
+
+    <br>
+    <p>用例3：id,data</p>
+    <p>预期结果：一页显示，排序（id,name）,有模板</p>
+    <p>实际结果：可排序，可模板</p>
+    <so:datagrid :id="grid3" :data="data3"></so:datagrid>
+
+    <br>
+    <p>用例2：id,data</p>
+    <p>预期结果：异步加载，一页显示，排序（id,name）,无模板</p>
+    <p>实际结果：异步，可排序</p>
+    <so:datagrid :id="grid2" :data="data2"></so:datagrid>
+
+    <br>
+    <p>用例1：id,data,class,style,hidden</p>
+    <button onclick="hide1()">隐藏</button><br>
+    <p>预期结果：同步加载，一页显示，id列隐藏，不排序，无模板</p>
+    <p>实际结果：同步，可显示，可隐藏</p>
+    <so:datagrid :id="grid1" :data="data1" :class="gridClass" :style="width: 800px" :hidden="hidden1"></so:datagrid>
+
+    <br>
+    <p>用例0：id </p>
+    <p>预期结果：组件无报错</p>
+    <p>实际结果：组件无报错</p>
+    <so:datagrid :id="grid0"></so:datagrid>
+
+    <script>
+        // first define all parameters & pay attention to its define order
+        var data9, data8, data7, data6, data5, data4, data4_1, data3, data2, data1, hidden1 = false,
+            url9 = "../../Mock/grid/grid9.json",
+            url8 = "../../Mock/grid/grid8.json",
+            url7 = "../../Mock/grid/grid7.json",
+            url6 = "../../Mock/grid/grid6.json",
+            url6_1 = "../../Mock/grid/grid6-1.json",
+            url5 = "../../Mock/grid/grid5.json",
+            url4 = "../../Mock/grid/grid4.json",
+            url4_1 = "../../Mock/grid/grid4-1.json",
+            url3 = "../../Mock/grid/grid3.json",
+            url2 = "../../Mock/grid/grid2.json",
+            url1 = "../../Mock/grid/grid1.json"
+
+        //set data  
+        function event9() {
+            $.ajax({
+                url: url9,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid9", "data9", json)
+                }
+            })
+        }
+        event9()
+
+        function event8() {
+            $.ajax({
+                url: url8,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid8", "data8", json)
+                }
+            })
+        }
+        event8()
+
+        function event7() {
+            $.ajax({
+                url: url7,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid7", "data7", json)
+                }
+            })
+        }
+        event7()
+
+        function changeData_6() {
+            $.ajax({
+                url: url6_1,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid6", "data6", json)
+                }
+            })
+        }
+
+
+        function event6() {
+            $.ajax({
+                url: url6,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid6", "data6", json)
+                }
+            })
+        }
+        event6()
+
+        function event4() {
+            $.ajax({
+                url: url4,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid4", "data4", json)
+                }
+            })
+        }
+        event4()
+
+        function event3() {
+            $.ajax({
+                url: url3,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid3", "data3", json)
+                }
+            })
+        }
+        event3()
+
+        function event2() {
+            $.ajax({
+                url: url2,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid2", "data2", json)
+                }
+            })
+        }
+        event2()
+
+        function event_6() {
+            $.ajax({
+                url: url6,
+                type: "get",
+                dataType: "json",
+                async: false,
+                success: function(json) {
+                    data_6 = json
+                }
+            })
+        }
+        event_6()
+
+        $.ajaxSettings.async = false;
+        $.getJSON(url1, function(json) {
+            data1 = json;
+        })
+        $.ajaxSettings.async = false;
+        $.getJSON(url4_1, function(json) {
+            data4_1 = json;
+        })
+
+        //event 
+        var hide1 = function() {
+            soUIDev.setDataById("grid1", "hidden1", true)
+        }
+
+
+        var sort4 = function(event) {
+            // var d = {}
+            // d.fields = event.detail.fields
+            // d.selectedKeys = event.detail.selectedKeys
+            // var records = data4_1.records
+            // records = listSortBy(records, event.detail.sortField, event.detail.ascendingOrder);
+            // d.records = records
+            // return d
+
+            $.ajax({
+                url: url4_1,
+                type: "get",
+                dataType: "json",
+                success: function(json) {
+                    soUIDev.setDataById("grid4", "data4", json)
+                }
+            })
+        }
+
+        var sort7 = function(event) {
+            var sortField = event.detail.sortField
+            var ascendingOrder = event.detail.ascendingOrder
+            var d = {}
+            d.fields = data7_1.fields
+            d.selectedKeys = data7_1.selectedKeys
+            var records = data7_1.records
+            records = listSortBy(records, sortField, ascendingOrder);
+            d.records = records
+            return d
+        }
+
+        var selectpage7 = function(event) {
+            var pageIndex = event.detail.pager.pageIndex
+            var pageSize = event.detail.pager.pageSize
+            var sortField = event.detail.sortField
+            var ascendingOrder = event.detail.ascendingOrder
+            var d = {}
+            d.fields = data7_1.fields
+            d.selectedKeys = data7_1.selectedKeys
+            var records = data7_1.records
+            if (ascendingOrder != null)
+                records = listSortBy(records, sortField, ascendingOrder);
+            var start = pageSize * (pageIndex - 1);
+            var end = pageSize * pageIndex;
+            records = records.slice(start, end);
+            d.records = records
+            return d
+        }
+
+        var sort9 = function(event) {
+            var sortField = event.detail.sortField
+            var ascendingOrder = event.detail.ascendingOrder
+            var d = {}
+            d.fields = data9_1.fields
+            d.selectedKeys = event.detail.selectedKeys
+            var records = data9_1.records
+            var ascData = [{
+                    "id": 1,
+                    "name": "wangly",
+                    "math": 18,
+                    "chinese": 80,
+                    "english": 91
+                }, {
+                    "id": 2,
+                    "name": "lixx",
+                    "math": 28,
+                    "chinese": 80,
+                    "english": 90
+                }, {
+                    "id": 3,
+                    "name": "xiaob",
+                    "math": 38,
+                    "chinese": 80,
+                    "english": 89
+                }, {
+                    "id": 4,
+                    "name": "liucz",
+                    "math": 48,
+                    "chinese": 80,
+                    "english": 88
+                }],
+                descData = [{
+                    "id": 9,
+                    "name": "yiwk",
+                    "math": 98,
+                    "chinese": 80,
+                    "english": 83
+                }, {
+                    "id": 8,
+                    "name": "lid",
+                    "math": 88,
+                    "chinese": 80,
+                    "english": 84
+                }, {
+                    "id": 7,
+                    "name": "liyz",
+                    "math": 78,
+                    "chinese": 80,
+                    "english": 85
+                }, {
+                    "id": 6,
+                    "name": "kuq",
+                    "math": 68,
+                    "chinese": 80,
+                    "english": 86
+                }]
+            records = ascendingOrder ? ascData : descData
+            d.records = records
+            return d
+        }
+
+        var selectpage9 = function(event) {
+            var pageIndex = event.detail.pager.pageIndex
+            var pageSize = event.detail.pager.pageSize
+            var sortField = event.detail.sortField
+            var ascendingOrder = event.detail.ascendingOrder
+            var d = {}
+            d.fields = data9_1.fields
+            var records = data9_1.records
+            if (ascendingOrder != null)
+                records = listSortBy(records, sortField, ascendingOrder);
+            var start = pageSize * (pageIndex - 1);
+            var end = pageSize * pageIndex;
+            records = records.slice(start, end);
+            d.records = records
+            d.selectedKeys = event.detail.selectedKeys
+            return d
+        }
+
+        var getSelectsId6 = function() {
+            var selection = $("#grid6")[0].getAttribute("selection")
+            alert("用例5选中的节点id：" + selection)
+        }
+
+        var getSelectsId8 = function() {
+            var selection = $("#grid8")[0].getAttribute("selection")
+            alert("用例8选中的节点id：" + selection)
+        }
+
+        var getSelectsId9 = function() {
+            var selection = $("#grid9")[0].getAttribute("selection")
+            alert("用例9选中的节点id：" + selection)
+        }
+
+        var partParameters = function(a, b) {
+            alert("点击的参数依次是：" + a + "," + b);
+        }
+
+        var allParameters = function(a, b, c, d, e) {
+            alert("点击的参数依次是：" + a + "," + b + "," + c + "," + d + "," + e);
+        }
+
+        function listSortBy(arr, field, order) {
+            var refer = [],
+                result = [],
+                index;
+            for (i = 0; i < arr.length; i++) {
+                refer[i] = (isNaN(arr[i][field]) ? arr[i][field] : pad(arr[i][field], 20)) + ':' + i;
+            }
+            refer.sort();
+            if (!order) refer.reverse();
+            for (i = 0; i < refer.length; i++) {
+                index = refer[i].split(':')[1];
+                result[i] = arr[index];
+            }
+            return result;
+        }
+
+        function pad(num, n) {
+            var len = num.toString().length;
+            while (len < n) {
+                num = "0" + num;
+                len++;
+            }
+            return num;
+        }
+    </script>
+</body>
+
+</html>

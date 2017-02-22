@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/comment.css">
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../Js/soUIDev.js"></script>
+
+    <style>
+        #el {
+            margin-top: 100px;
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div id="el">
+    <so:remark  :id="remark"
+                :data="data"
+                :count="1000"
+                :user="user"
+                :onDelete="onDelete"
+                :onReply="onReply"
+                :onFilter="onFilter"
+                :onLoadMore="onLoadMore"
+                :onPraise="onPraise"
+    >
+    </so:remark>
+</div>
+<script type="text/javascript">
+    var user={
+        "userId": 1001,
+        "userName": "Tom",
+        "userPhotoUrl": "http://sucimg.itc.cn/avatarimg/507968285_1474183921578_c55",
+    };
+    var data=[
+        {
+            "id": 1001,
+            "remarkerId":1001,
+            "photoUrl":"http://sucimg.itc.cn/avatarimg/507968285_1474183921578_c55",
+            "praiseUsers":[],
+            "comments":"[{userId:1002,userName:'Jack',text:'中国海洋石油的勘探前景很好',remarkDate:'2016 14:36:30'},"+
+                    "{userId:1003,userName:'wawa',text:'中国海洋石',remarkDate:'2016 14:36:30'},"+
+            "{userId:1001,userName:'Tom',text:'是这样的，中国海岸线长，滨海相沉积层厚度大，生油条件好',remarkDate:'2016 14:36:30'}]"
+        },
+        {
+            "id": 1002,
+            "remarkerId":1002,
+            "photoUrl":"../Img/Userphoto/3.jpg",
+            "praiseUsers":[{userId:1002,userName:"Jack"}],
+            "comments":"[{userId:1004,userName:'John',text:'中国海洋面积很大',remarkDate:'2016 14:36:30'}," +
+            "{userId:1002,userName:'Jack',text:'是这样的，中国海岸线长，幅员广阔',remarkDate:'2016 14:36:30'}]"
+        },
+        {
+            "id": 1003,
+            "remarkerId":1007,
+            "photoUrl":"../Img/Userphoto/1.jpg",
+            "praiseUsers":[{userId:1001,userName:"Tom"}],
+            "comments":"[{userId:1002,userName:'Jack',text:'中国海洋石油的勘探前景很好',remarkDate:'2016 14:36:30'}," +
+            "{userId:1007,userName:'rose',text:'是这样的，中国海岸线长，滨海相沉积层厚度大，生油条件好',remarkDate:'2016 14:36:30'}]"
+        },
+        {
+            "id": 1004,
+            "remarkerId":1006,
+            "photoUrl":"../Img/Userphoto/2.jpg",
+            "praiseUsers":[{userId:1002,userName:"Jack"}],
+            "comments":"[{userId:1002,userName:'Jack',text:'中国海洋石油的勘探前景很好',remarkDate:'2016 14:36:30'}," +
+            "{userId:1006,userName:'Kity',text:'是这样的，中国海岸线长，滨海相沉积层厚度大，生油条件好',remarkDate:'2016 14:36:30'}]"
+        }
+    ];
+function onDelete(datasouce){
+    console.log(datasouce.detail.id);
+    for(var i=0;i<data.length;i++){
+        if(data[i].id==datasouce.detail.id){
+            data.splice(i,1);
+        }
+    }
+}
+function onReply(datasouce) {
+    var dat=datasouce.detail;
+    dat.id=1010;
+    dat.praiseUsers=[];
+    data.push(dat)
+}
+function onFilter(filter) {
+    console.log(filter.detail);
+}
+function onLoadMore(datat) {
+    var dara=[
+        {
+            "id": 1009,
+            "remarkerId":1001,
+            "photoUrl":"http://sucimg.itc.cn/avatarimg/507968285_1474183921578_c55",
+            "praiseUsers":[{userId:1002,userName:"Jack"}],
+            "comments":"[{userId:1002,userName:'Jack',text:'中国海洋石油的勘探前景很好',remarkDate:'2016 14:36:30'},"+
+            "{userId:1003,userName:'wawa',text:'中国海洋石',remarkDate:'2016 14:36:30'},"+
+            "{userId:1001,userName:'Tom',text:'是这样的，中国海岸线长，滨海相沉积层厚度大，生油条件好',remarkDate:'2016 14:36:30'}]"
+        }
+    ]
+    return dara
+}
+function onPraise(datas) {
+    console.log(datas.detail.id);
+}
+   /* soUIDev.bind({
+        scope: "el",
+        model:'so:remark',
+    })*/
+   /* var ondeleteremarks= function (data) {
+        deleteremarkbyid(data);
+        //alert(data);
+    };
+    var onaddreply=function (data,id) {
+        addremarktotopic(data,id);
+//     alert(data.text);
+    };
+    function ongetdata (topicid, size, index, filter) {
+        return getdata(topicid, size, index, filter);
+    };
+
+
+    //根据id删除评论
+    function deleteremarkbyid(id) {
+        for(var i=0;i<datasouce.data.length;i++){
+            if(datasouce.data[i].id==id){
+                datasouce.data.splice(i,1);
+                return;
+            }
+        }
+    }
+    //添加评论
+    function addremarktotopic(remarkdata,id) {
+        remarkdata.id=1001+datasouce.data.length;
+        datasouce.data.push(remarkdata);
+    }
+    //getdata
+    function getdata(topicid, size, index, filter) {
+        var obj={};
+        obj.userinfo=datasouce.userinfo
+        obj.totalremarks=datasouce.totalremarks
+        obj.topicid=datasouce.topicid
+        var modeldata=datasouce;
+
+        if (topicid==modeldata.topicid) {
+            var redata = [];
+            if (filter == "time") {
+                for (var i = 0; i < modeldata.data.length; i++) {
+                    if (isToday(modeldata.data[i].time)) {
+                        redata.push(modeldata.data[i]);
+                    }
+                }
+            } else if(filter=="myremark"){
+                for (var i = 0; i < modeldata.data.length; i++) {
+                    if (modeldata.data[i].userid == modeldata.userinfo.userid) {
+                        redata.push(modeldata.data[i]);
+                    }
+                }
+            }else {
+                for(var i = 0; i < modeldata.data.length; i++){
+                    redata.push(modeldata.data[i]);
+                }
+            }
+            obj.data = redata;
+            obj.data.sort(compare("time"))
+            if(!index)
+            {
+                index=0;
+            }
+            if (size + index >= obj.totalremarks) {
+                obj.data = obj.data.slice(index);
+            } else {
+                obj.data = obj.data.slice(index, size + index);
+            }
+        }else {
+            obj=null;
+        }
+        return obj;
+    }
+    //判断是否是今天
+    function isToday(str) {
+        var history = new Date(str);
+        var today = new Date();
+        if (history.getFullYear() == today.getFullYear() && history.getMonth() == today.getMonth() && (today.getDate() - history.getDate()) < 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //比较器
+    function compare(propertyName) {
+        return function (object1, object2) {
+            var value1 = object1[propertyName];
+            var value2 = object2[propertyName];
+            if (value2 < value1) {
+                return 1;
+            }
+            else if (value2 > value1) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+        }
+    }*/
+</script>
+</body>
+</html>

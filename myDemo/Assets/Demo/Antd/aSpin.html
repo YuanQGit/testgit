@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>加载动画</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Spin</h1>
+    <hr>
+    <p>用于页面和区块的loading状态。</p>
+    <h2>何时使用</h2>
+    页面局部处于等待数据渲染时。<br>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本用法</h3>
+        <br/>
+        <so:a_spin></so:a_spin>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :on-change=&quot;_change&quot;&gt;&lt;span&gt;Checkbox&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>容器</h3>
+        <br/>
+        <div class="spin-demo2-container">
+            <so:a_spin></so:a_spin>
+        </div>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>卡片加载中</h3>
+        <br/>
+        <so:a_spin size="large" :hide="hide">
+            <div style="text-align: center;">
+                <img src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" width="200px" height="200px" />
+                <div>我是一张图片</div>
+            </div>
+        </so:a_spin>
+        <br>
+        <div style="text-align: center">
+            <so:a_button :type="'primary'" :onclick="_enterLoading">点击切换</so:a_button>
+        </div>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>各种大小</h3>
+        <br/>
+        <so:a_spin :size="'small'"></so:a_spin>
+        <br>
+        <so:a_spin></so:a_spin>
+        <br>
+        <so:a_spin :size="'large'"></so:a_spin>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>类型</th>
+            <th>默认值</th>
+            <th>说明</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>size</td>
+            <td>enum</td>
+            <td>default</td>
+            <td>spin组件中点的大小，可选值为small default large</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var hide=false;
+    var _enterLoading=function () {
+        alert(111111)
+        if(this.hide==false){
+            this.hide=true;
+        }else if(this.hide==true){
+            this.hide=false;
+        }
+    };
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_spin','so:a_button']
+
+    });
+
+</script>
+</body>
+
+</html>

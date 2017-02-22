@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Table组件</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/font-awesome.min.css">
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+
+    <style>
+        a {
+            color: #55555a;
+        }
+    </style>
+</head>
+
+<body>
+<h2>Multiple Table</h2>
+<div class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="tabbable tabs-below">
+                <ul class="nav nav-tabs" id="tab">
+                    <li class="active">
+                        <a data-toggle="tab" href="#home2">TestTable</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#profile2">TestTable2</a>
+                    </li>
+                </ul>
+                <br/>
+                <div class="tab-content">
+                    <div id="home2" class="tab-pane in active">
+                        <div id="s_table">
+                            <so:datatable :ischeckable="ischeckable" :pagesize="pagesize" :navcount="navcount"
+                                          :totalcount="totalcount" :columns="columns" :datasource="datasource"
+                                          :ongetdata="onGetData" :oncheckbox="onCheckbox" :ontd="onTd"></so:datatable>
+                        </div>
+                    </div>
+
+                    <div id="profile2" class="tab-pane">
+                        <div id="s_table_2">
+                            <so:datatable :ischeckable="ischeckable" :pagesize="pagesize" :navcount="navcount"
+                                          :totalcount="totalcount" :columns="columns" :datasource="datasource"
+                                          :ongetdata="onGetData" :oncheckbox="onCheckbox" :ontd="onTd"></so:datatable>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var table_url = "../../Mock/table.json";
+    var totalCount, columns, dataSource;
+    $.ajaxSettings.async = false;
+    $.getJSON(table_url, function (table) {
+        totalCount = table.totalcount;
+        columns = table.column;
+        dataSource = table.data;
+    });
+
+    var table_url2 = "../../Mock/table2.json";
+    var totalCount2, columns2, dataSource2;
+    $.ajaxSettings.async = false;
+    $.getJSON(table_url2, function (table) {
+        totalCount2 = table.totalcount;
+        columns2 = table.column;
+        dataSource2 = table.data;
+    });
+
+    var isCheckable = true, pageSize = 10, navCount = 10;
+    var vm = soUIDev.createViewModel({
+        scope: "s_table",
+        data: {
+            ischeckable: isCheckable,
+            pagesize: pageSize,
+            navcount: navCount,
+            totalcount: totalCount,
+            columns: columns,
+            datasource: null
+        },
+        methods: {
+            onGetData: function (pageIndex, sortField, sortOrder) {
+                this.datasource = getData(pageIndex, sortField, sortOrder)
+            },
+            onCheckbox: function (checkVal) {
+                alert("选中的项有：" + checkVal)
+            },
+            onTd: function (result) {
+                alert("当前点击的项是：" + result)
+            }
+        }
+    });
+
+    var isCheckable2 = true, pageSize2 = 10, navCount2 = 10;
+    var vm2 = soUIDev.createViewModel({
+        scope: "s_table_2",
+        data: {
+            ischeckable: isCheckable2,
+            pagesize: pageSize2,
+            navcount: navCount2,
+            totalcount: totalCount2,
+            columns: columns2,
+            datasource: null
+        },
+        methods: {
+            onGetData: function (pageIndex, sortField, sortOrder) {
+                this.datasource = getData2(pageIndex, sortField, sortOrder)
+            },
+<<<<<<< .mine
+            onCheckbox: function (checkVal) {
+                alert("选中的项有：" + checkVal)
+            },
+            onTd: function (result) {
+                alert("当前点击的项是：" + result)
+=======
+            methods: {
+                onGetData: function (pageIndex, sortField, sortOrder) {
+
+                    this.datasource = getData2(pageIndex, sortField, sortOrder)
+                },
+                onCheckbox: function (checkVal) {
+                    alert("选中的项有：" + checkVal)
+                },
+                onTd: function (result) {
+                    alert("当前点击的项是：" + result)
+                }
+>>>>>>> .r792
+            }
+        }
+    });
+
+    function getData(pageIndex, sortField, sortOrder) {
+        var datasource;
+        if (sortField && sortOrder) {
+            dataSource = listSortBy(dataSource, sortField, sortOrder);
+            datasource = dataSource.slice(0, pageSize);
+        } else {
+            var start = pageSize * (pageIndex - 1);
+            var end = pageSize * pageIndex;
+            datasource = dataSource.slice(start, end);
+        }
+        return datasource
+    }
+
+    function getData2(pageIndex, sortField, sortOrder) {
+        var datasource;
+        if (sortField && sortOrder) {
+            dataSource2 = listSortBy(dataSource2, sortField, sortOrder);
+            datasource = dataSource2.slice(0, pageSize);
+        } else {
+            var start = pageSize * (pageIndex - 1);
+            var end = pageSize * pageIndex;
+            datasource = dataSource2.slice(start, end);
+        }
+        return datasource
+    }
+
+    function listSortBy(arr, field, order) {
+        var refer = [], result = [], order = order == 'asc' ? 'asc' : 'desc', index;
+        for (i = 0; i < arr.length; i++) {
+            refer[i] = (isNaN(arr[i][field]) ? arr[i][field] : pad(arr[i][field], 20)) + ':' + i;
+        }
+        refer.sort();
+        if (order == 'desc') refer.reverse();
+        for (i = 0; i < refer.length; i++) {
+            index = refer[i].split(':')[1];
+            result[i] = arr[index];
+        }
+        return result;
+    }
+
+    function pad(num, n) {
+        var len = num.toString().length;
+        while (len < n) {
+            num = "0" + num;
+            len++;
+        }
+        return num;
+    }
+
+    function rowEdit(a, b) {
+        alert("点击的参数依次是：" + a + "," + b);
+    }
+    function rowUpdate(a, b, c, d, e) {
+        alert("点击的参数依次是：" + a + "," + b + "," + c + "," + d + "," + e);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>数字输入框</title>
+	<!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+	<!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+	<script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+	<script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<script src="../../js/soUIDev.js"></script>
+	<link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+	<h1 id="alert">InputNumber</h1>
+	<hr>
+	<p>通过鼠标或键盘，输入范围内的数值。</p>
+	<h2>何时使用</h2><br>
+	当需要获取标准数值时。<br>
+	<h2>组件演示</h2>
+	<div class="code-box">
+		<h3>基本用法</h3>
+		<br/>
+		<so:a_inputnumber min="1" max="10" default-value="3" :on-change="_handleChange"></so:a_inputnumber>
+		<div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :on-change=&quot;_change&quot;&gt;&lt;span&gt;Checkbox&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+		</div>
+	</div>
+
+	<div class="code-box">
+		<h3>基本用法</h3>
+		<br/>
+		<so:a_inputnumber size="large" min="1" max="100000" default-value="3" :on-change="_handleChange"></so:a_inputnumber>
+		<so:a_inputnumber min="1" max="100000" default-value="3" :on-change="_handleChange"></so:a_inputnumber>
+		<so:a_inputnumber size="small" min="1" max="100000" default-value="3" :on-change="_handleChange"></so:a_inputnumber>
+		<div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :on-change=&quot;_change&quot;&gt;&lt;span&gt;Checkbox&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+		</div>
+	</div>
+
+	<div class="code-box">
+		<h3>基本用法</h3>
+		<br/>
+		<so:a_inputnumber min="1" max="10" :disabled="disabled" default-value="3"></so:a_inputnumber>
+		<div style="margin-top: 20px">
+			<so:a_button :onclick="_toggle" type="primary">Toggle disabled</so:a_button>
+		</div>
+		<div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :on-change=&quot;_change&quot;&gt;&lt;span&gt;Checkbox&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+		</div>
+	</div>
+
+
+	<div class="code-box">
+		<h3>不可用</h3>
+		<br/>
+		<so:a_inputnumber default-value="1" step="10"></so:a_inputnumber>
+		<div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+                    </code>
+                </pre>
+		</div>
+	</div>
+
+	<h2 id="api">API</h2>
+	<table>
+		<thead>
+		<tr>
+			<th>参数</th>
+			<th>说明</th>
+			<th>类型</th>
+			<th>默认值</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>min</td>
+			<td>最小值</td>
+			<td>Number</td>
+			<td>Infinity</td>
+		</tr>
+		<tr>
+			<td>max</td>
+			<td>最大值</td>
+			<td>Number</td>
+			<td>Infinity</td>
+		</tr>
+		<tr>
+			<td>value</td>
+			<td>当前值</td>
+			<td>Number</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>step</td>
+			<td>每次改变步数</td>
+			<td>Number</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>defaultValue</td>
+			<td>初始值</td>
+			<td>Number</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>onChange</td>
+			<td>变化回调</td>
+			<td>Function</td>
+			<td></td>
+		</tr>
+
+		<tr>
+			<td>disabled</td>
+			<td>禁用</td>
+			<td>Boolean</td>
+			<td>false</td>
+		</tr>
+		<tr>
+			<td>size</td>
+			<td>输入框大小</td>
+			<td>String</td>
+			<td>无</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+	var _toggle=function () {
+		alert(11)
+	};
+        var _handleChange=function () {
+			alert(1);
+		}
+		soUIDev.bind({
+            //绑定在某个元素的域中，这个很重要：这样可以限定模块的区域不会对其他地方造成影响，更好控制，更干净。
+            scope: 'sooil',
+			model:['so:a_inputnumber','so:a_button']
+        });
+    </script>
+</body>
+
+</html>

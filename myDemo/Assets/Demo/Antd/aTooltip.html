@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>文字提示</title>
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Tooltip</h1>
+    <hr>
+    <p>简单的文字提示气泡框。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。</li>
+        <li>可用来代替系统默认的 title 提示，提供一个按钮/文字/操作的文案解释。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:a_tooltip title="提示文字">
+            <span>鼠标移上来就会出现提示</span>
+        </so:a_tooltip>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_tooltip title=&quot;提示文字&quot;&gt;
+    &lt;span&gt;鼠标移上来就会出现提示&lt;/span&gt;
+&lt;/so:a_tooltip&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>位置</h3>
+        <br/>
+        <div style="margin-left: 60px;">
+            <so:a_tooltip placement="topLeft" :title="text">
+                <so:a_button>上左</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="top" :title="text">
+                <so:a_button>上边</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="topRight" :title="text">
+                <so:a_button>上右</so:a_button>
+            </so:a_tooltip>
+        </div>
+        <div style="width: 60px; float: left">
+            <so:a_tooltip placement="leftTop" :title="text">
+                <so:a_button>左上</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="left" :title="text">
+                <so:a_button>左边</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="leftBottom" :title="text">
+                <so:a_button>左下</so:a_button>
+            </so:a_tooltip>
+        </div>
+        <div style="width: 60px; margin-left: 270px;">
+            <so:a_tooltip placement="rightTop" :title="text">
+                <so:a_button>右上</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="right" :title="text">
+                <so:a_button>右边</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="rightBottom" :title="text">
+                <so:a_button>右下</so:a_button>
+            </so:a_tooltip>
+        </div>
+        <div style="margin-left: 60px; cleat: both;">
+            <so:a_tooltip placement="bottomLeft" :title="text">
+                <so:a_button>下左</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="bottom" :title="text">
+                <so:a_button>下边</so:a_button>
+            </so:a_tooltip>
+            <so:a_tooltip placement="bottomRight" :title="text">
+                <so:a_button>下右</so:a_button>
+            </so:a_tooltip>
+        </div>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;div style=&quot;margin-left: 60px;&quot;&gt;
+    &lt;so:a_tooltip placement=&quot;topLeft&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;上左&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;top&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;上边&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;topRight&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;上右&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width: 60px; float: left&quot;&gt;
+    &lt;so:a_tooltip placement=&quot;leftTop&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;左上&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;left&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;左边&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;leftBottom&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;左下&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width: 60px; margin-left: 270px;&quot;&gt;
+    &lt;so:a_tooltip placement=&quot;rightTop&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;右上&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;right&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;右边&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;rightBottom&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;右下&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+&lt;/div&gt;
+&lt;div style=&quot;margin-left: 60px; cleat: both;&quot;&gt;
+    &lt;so:a_tooltip placement=&quot;bottomLeft&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;下左&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;bottom&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;下边&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+    &lt;so:a_tooltip placement=&quot;bottomRight&quot; :title=&quot;text&quot;&gt;
+        &lt;so:a_button&gt;下右&lt;/so:a_button&gt;
+    &lt;/so:a_tooltip&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>placement</td>
+            <td>气泡框位置，可选 top/left/right/bottom</td>
+            <td>string</td>
+            <td>top</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>提示文字</td>
+            <td>string/jsx</td>
+            <td>无</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    var vm=soUIDev.bind({
+        scope:'sooil',
+        model:['so:a_tooltip','so:a_button']
+
+    })
+</script>
+</body>
+</html>

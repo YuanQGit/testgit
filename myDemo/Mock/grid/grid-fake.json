@@ -1,0 +1,43 @@
+{
+    "fields": [
+        { "name": "id", "title": "id", "type": "string", "key": true, "visible": true, "sortable": true, "ascendingOrder": true, "operationTemplate": "" },
+        { "name": "name", "title": "name", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": true, "operationTemplate": "" },
+        { "name": "math", "title": "math", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": true, "operationTemplate": "" },
+        { "name": "chinese", "title": "chinese", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": true, "operationTemplate": "" },
+        {
+            "name": "english",
+            "title": "english",
+            "type": "string",
+            "key": false,
+            "visible": true,
+            "sortable": true,
+            "ascendingOrder": true,
+            "operationTemplate": ""
+        },
+        { "name": "operate", "title": "operate", "type": "string", "key": false, "visible": true, "sortable": true, "ascendingOrder": true, "operationTemplate": "" }
+    ],
+    "records": [
+        { "id": 1, "name": "wangly", "math": 80, "chinese": 80, "english": 91 },
+        { "id": 2, "name": "lixx", "math": 80, "chinese": 80, "english": 90 },
+        { "id": 3, "name": "xiaob", "math": 80, "chinese": 80, "english": 89 },
+        { "id": 4, "name": "liucz", "math": 80, "chinese": 80, "english": 88 },
+        { "id": 5, "name": "xiongy", "math": 80, "chinese": 80, "english": 87 },
+        { "id": 6, "name": "kuq", "math": 80, "chinese": 80, "english": 86 },
+        { "id": 7, "name": "liyz", "math": 80, "chinese": 80, "english": 85 },
+        { "id": 8, "name": "lid", "math": 80, "chinese": 80, "english": 84 },
+        { "id": 9, "name": "yiwk", "math": 80, "chinese": 80, "english": 83 },
+        { "id": 10, "name": "wangl", "math": 80, "chinese": 80, "english": 82 },
+        { "id": 11, "name": "fangzh", "math": 80, "chinese": 80, "english": 81 },
+        { "id": 12, "name": "yanlin", "math": 80, "chinese": 80, "english": 80 },
+        { "id": 13, "name": "wanght", "math": 80, "chinese": 80, "english": 79 },
+        { "id": 14, "name": "yangt", "math": 80, "chinese": 80, "english": 78 },
+        { "id": 15, "name": "huangf", "math": 80, "chinese": 80, "english": 77 },
+        { "id": 16, "name": "liutp", "math": 80, "chinese": 80, "english": 76 },
+        { "id": 17, "name": "hewt", "math": 80, "chinese": 80, "english": 75 },
+        { "id": 18, "name": "wuhl", "math": 80, "chinese": 80, "english": 74 },
+        { "id": 19, "name": "yangq", "math": 80, "chinese": 80, "english": 73 },
+        { "id": 20, "name": "chengsq", "math": 80, "chinese": 80, "english": 72 },
+        { "id": 21, "name": "dengll", "math": 80, "chinese": 80, "english": 71 }
+    ],
+    "selectedKeys": ["key1|key2|...", "key", "..."]
+}

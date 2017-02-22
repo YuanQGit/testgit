@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>折叠面板</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Collapse</h1>
+    <hr>
+    <p>可以折叠/展开的内容区域。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>对复杂区域进行分组和隐藏，保持页面的整洁。</li>
+        <li>手风琴 是一种特殊的折叠面板，只允许单个内容区域展开。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>折叠面板</h3>
+        <br/>
+        <so:a_collapse :default-active-key="['1']" :on-change="_onChange">
+            <so:a_panel :header="'This is panel header 1'" :key="'1'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+            <so:a_panel :header="'This is panel header 2'" :key="'2'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+            <so:a_panel :header="'This is panel header 3'" :key="'3'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+        </so:a_collapse>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :on-change=&quot;_change&quot;&gt;&lt;span&gt;Checkbox&lt;/span&gt;&lt;/so:a_checkbox&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>手风琴</h3>
+        <br/>
+        <so:a_collapse :accordion="true">
+            <so:a_panel :header="'This is panel header 1'" :key="'1'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+            <so:a_panel :header="'This is panel header 2'" :key="'2'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+            <so:a_panel :header="'This is panel header 3'" :key="'3'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+        </so:a_collapse>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>面板嵌套</h3>
+        <br/>
+        <so:a_collapse :on-change="_onChange" :accordion="true">
+            <so:a_panel :header="'This is panel header 1'" :key="'1'">
+                <so:a_collapse :default-active-key="'1'">
+                    <so:a_panel :header="'This is panel nest panel'" :key="'1'">
+                        <p>
+                            A dog is a type of domesticated animal.
+                            Known for its loyalty and faithfulness,
+                            it can be found as a welcome guest in many households across the world.
+                        </p>
+                    </so:a_panel>
+                </so:a_collapse>
+            </so:a_panel>
+            <so:a_panel :header="'This is panel header 2'" :key="'2'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+            <so:a_panel :header="This is panel header 3" :key="'3'">
+                <p>
+                    A dog is a type of domesticated animal.
+                    Known for its loyalty and faithfulness,
+                    it can be found as a welcome guest in many households across the world.
+                </p>
+            </so:a_panel>
+        </so:a_collapse>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_checkbox :default-checked=&quot;false&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;
+&lt;so:a_checkbox :default-checked=&quot;true&quot; :disabled=&quot;true&quot;&gt;&lt;span&gt;不可用&lt;/span&gt;&lt;/so:a_checkbox&gt;                    </code>
+                </pre>
+        </div>
+        </div>
+
+    <h2 id="api">API</h2>
+    <h3>Collapse</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>activeKey</td>
+            <td>当前激活tab面板的key	</td>
+            <td>Array or String</td>
+            <td>默认无，accordion模式下默认第一个元素</td>
+        </tr>
+        <tr>
+            <td>defaultActiveKey</td>
+            <td>初始化选中面板的key</td>
+            <td>String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>onChange</td>
+            <td>切换面板的回调</td>
+            <td>Function</td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Collapse.Panel</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>key</td>
+            <td>对应activeKey</td>
+            <td>String</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>header</td>
+            <td>面板头内容</td>
+            <td>React.Element or String</td>
+            <td>无</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var _onChange=function () {
+        alert(1);
+    }
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_panel','so:a_collapse']
+    });
+
+</script>
+</body>
+
+</html>

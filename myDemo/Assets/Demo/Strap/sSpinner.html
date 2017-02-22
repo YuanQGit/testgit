@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spinner</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../Js/lib/strap/css/strapDemo.css">
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Spinner</h1>
+    <hr>
+    <p>用于页面和区块的loading状态。</p>
+    <h2>何时使用</h2>
+    <ul class="usertime">
+        <li>页面局部处于等待数据渲染时。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:s_spinner  v-ref:spinner size="md" text="I will close in 2 secs"></so:s_spinner>
+        <button class="btn btn-info" @click="show">show</button>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+        &lt;so:s_spinner  v-ref:spinner size=&quot;md&quot; text=&quot;I will close in 2 secs&quot;&gt;&lt;/so:s_spinner&gt;
+        &lt;button class=&quot;btn btn-ifno&quot; @click=&quot;show&quot;&gt;show&lt;/button&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+    <h2 id="api">API</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>成员</th>
+            <th>值类型</th>
+            <th>默认值</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>size</td>
+            <td>String(sm,md,lg,xl)</td>
+            <td>md</td>
+            <td>动画尺寸</td>
+        </tr>
+        <tr>
+            <td>fixed</td>
+            <td>Boolean</td>
+            <td>false</td>
+            <td>设置动画效果是否覆盖全屏</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+var fixed=false;
+    soUIDev.bind({
+        scope:'sooil',
+        model:'so:s_spinner',
+        methods:{
+            show:function () {
+                this.$broadcast('show::spinner')
+                this.$refs.spinner.show()
+                this.$refs.spinner.hide()
+                this.$broadcast('hide::spinner')
+            }
+        }
+    })
+</script>
+</body>
+</html>

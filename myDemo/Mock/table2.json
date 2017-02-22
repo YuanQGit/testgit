@@ -1,0 +1,33 @@
+{
+    "totalcount":21,
+    "column": [
+        { "field": "id2", "text": "id2", "isSortable": true },
+        { "field": "name2", "text": "name2", "isSortable": true },
+        { "field": "math2", "text": "math2" },
+        { "field": "chinese2", "text": "chinese2","template": "<span style='color:red'><#= chinese2#></span>" },
+        { "field": "english2", "text": "english2", "isSortable": true }
+    ],
+    "data": [
+        { "id2": 1, "name2": "wangly", "math2": 80, "chinese2": 80, "english2": 91 },
+        { "id2": 2, "name2": "liuxk", "math2": 80, "chinese2": 80, "english2": 90 },
+        { "id2": 3, "name2": "xiaob", "math2": 80, "chinese2": 80, "english2": 89 },
+        { "id2": 4, "name2": "liucz", "math2": 80, "chinese2": 80, "english2": 88 },
+        { "id2": 5, "name2": "xiongy", "math2": 80, "chinese2": 80, "english2": 87 },
+        { "id2": 6, "name2": "kuq", "math2": 80, "chinese2": 80, "english2": 86 },
+        { "id2": 7, "name2": "liyz", "math2": 80, "chinese2": 80, "english2": 85 },
+        { "id2": 8, "name2": "lid", "math2": 80, "chinese2": 80, "english2": 84 },
+        { "id2": 9, "name2": "yiwk", "math2": 80, "chinese2": 80, "english2": 83 },
+        { "id2": 10, "name2": "wangl", "math2": 80, "chinese2": 80, "english2": 82 }, 
+        { "id2": 11, "name2": "fangzh", "math2": 80, "chinese2": 80, "english2": 81 }, 
+        { "id2": 12, "name2": "yanlin", "math2": 80, "chinese2": 80, "english2": 80 },
+        { "id2": 13, "name2": "wanght", "math2": 80, "chinese2": 80, "english2": 79 },
+        { "id2": 14, "name2": "yangt", "math2": 80, "chinese2": 80, "english2": 78 },
+        { "id2": 15, "name2": "huangf", "math2": 80, "chinese2": 80, "english2": 77 },
+        { "id2": 16, "name2": "liutp", "math2": 80, "chinese2": 80, "english2": 76 },
+        { "id2": 17, "name2": "hewt", "math2": 80, "chinese2": 80, "english2": 75 },
+        { "id2": 18, "name2": "wuhl", "math2": 80, "chinese2": 80, "english2": 74 },
+        { "id2": 19, "name2": "yangq", "math2": 80, "chinese2": 80, "english2": 73 },
+        { "id2": 20, "name2": "chengsq", "math2": 80, "chinese2": 80, "english2": 72 }, 
+        { "id2": 21, "name2": "dengll", "math2": 80, "chinese2": 80, "english2": 71 }
+    ]
+}

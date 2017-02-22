@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="bar">
+    <so:linechart
+            :data="data"
+            :style="width:600px;height:500px"
+            :mainTitle="2016年世界GDP"
+            :subHead="中国最强"
+            :showTool="true"
+            :showLabel="true"
+            :id="line"
+    >
+    </so:linechart>
+</div>
+<script>
+    var data={
+        legend:["中国","美国","欧盟","俄罗斯","小日本"],
+        xAxis:  ["第一季度","第二季度","第三季度","第四季度"],
+        dataArea:[[10000,10100,10300,10800],[8000,7900,7500,7000],[5000,4900,4700,4200],[3000,2900,3100,3200],[250,250,250,250]]
+    };
+   /* soUIDev.bind({
+        scope:"bar",
+        model:"so:linechart"
+    })*/
+</script>
+</body>
+</html>

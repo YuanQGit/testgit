@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单组件</title>
+     <script src="../js/GtSubmit.js"></script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+ 
+</head>
+<body>
+<style >
+    input[type=file] {
+        display: none;
+    }
+</style>
+<div id="el" style="width:600px">
+<!--<elform></elform>-->
+    <so:submit :style="styleStr" uploadapi="http://192.168.1.152:8077/API/SubmissionService/Upload"></so:submit>
+</div>
+<!--<button class="btn btn-primary" onclick="test()">test</button>-->
+<div id="test"></div>
+<script>
+    var styleStr = "width:900px";
+    var data = [
+        {
+            "groupNam": "testform",
+            "groupTitle": "test提交表单",
+            "fields": [
+                {
+                    "type": "label",
+                    "name": "Author",
+                    "title": "标签",
+                    "maxLength": "50",
+                    "regExp": "xxx",
+                    "required": true,
+                    "value": "这是一个Label",
+                    "options": []
+                },
+                {
+                    "type": "dropdown",
+                    "name": "Author",
+                    "title": "下拉框",
+                    "maxLength": "50",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": [
+                        {"text": "张三", "value": "value1", "selected": false},
+                        {"text": "李四", "value": "value2", "selected": false},
+                        {"text": "王五", "value": "value2", "selected": false},
+                        {"text": "赵六", "value": "value2", "selected": false}
+                    ]
+                },
+                {
+                    "type": "textarea",
+                    "name": "time",
+                    "title": "文本域",
+                    "maxLength": "15",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+                {
+                    "type": "datetime",
+                    "name": "time",
+                    "title": "日期时间",
+                    "maxLength": "50",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+                {
+                    "type": "date",
+                    "name": "time",
+                    "title": "日期",
+                    "maxLength": "20",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+
+                {
+                    "type": "text",
+                    "name": "time",
+                    "title": "文本框",
+                    "maxLength": "10",
+                    "regExp": "/^[a-zA-Z]$/",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                }
+            ]
+        },
+        {
+            "groupNam": "testform",
+            "groupTitle": "test提交表单",
+            "fields": [
+                {
+                    "type": "label",
+                    "name": "Author",
+                    "title": "标签",
+                    "maxLength": "50",
+                    "regExp": "xxx",
+                    "required": true,
+                    "value": "这是一个Label",
+                    "options": []
+                },
+                {
+                    "type": "dropdown",
+                    "name": "Author",
+                    "title": "下拉框",
+                    "maxLength": "50",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": [
+                        {"text": "张三", "value": "value1", "selected": false},
+                        {"text": "李四", "value": "value2", "selected": false},
+                        {"text": "王五", "value": "value2", "selected": false},
+                        {"text": "赵六", "value": "value2", "selected": false}
+                    ]
+                },
+                {
+                    "type": "textarea",
+                    "name": "time",
+                    "title": "文本域",
+                    "maxLength": "15",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+                {
+                    "type": "datetime",
+                    "name": "time",
+                    "title": "日期时间",
+                    "maxLength": "50",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+                {
+                    "type": "date",
+                    "name": "time",
+                    "title": "日期",
+                    "maxLength": "20",
+                    "regExp": "",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                },
+
+                {
+                    "type": "text",
+                    "name": "time",
+                    "title": "文本框",
+                    "maxLength": "10",
+                    "regExp": "/^[a-zA-Z]$/",
+                    "required": true,
+                    "value": "",
+                    "options": []
+                }
+            ]
+        }
+    ];
+    soUIDev.bind({
+        scope: "el",
+        model: "so:submit"
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div>
+    <div id="trigger">
+        <span>placement:</span>
+        <label>
+            <select v-model="placement">
+                <option>right</option>
+                <option>left</option>
+                <option>top</option>
+                <option>bottom</option>
+                <option>topLeft</option>
+                <option>topRight</option>
+                <option>bottomRight</option>
+                <option>bottomLeft</option>
+            </select>
+        </label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label>
+            <so:a_checkbox :value="'ant-trigger-popup-zoom'"
+                        :on-change="_onTransitionChange"
+                        :checked="transitionName === 'ant-trigger-popup-zoom'">transitionName</so:a_checkbox>
+        </label>
+        <br>
+        <br>
+        <span>trigger:</span>
+        <label>
+            <so:a_checkbox :value="'hover'"
+                        :checked="!!trigger.hover"
+                        :on-change="_onTriggerChange">hover</so:a_checkbox>
+        </label>
+        <label>
+            <so:a_checkbox value="focus"
+                        :checked="!!trigger.focus"
+                        :on-change="_onTriggerChange">focus</so:a_checkbox>
+        </label>
+        <label>
+            <so:a_checkbox value="click"
+                        :checked="!!trigger.click"
+                        :on-change="_onTriggerChange">click</so:a_checkbox>
+        </label>
+        <br>
+        <br>
+        <span>offsetX:</span>
+        <label>
+            <input type='text' style="width: 100px;" class="ant-input" @change="_onOffsetXChange"/>
+        </label>
+        <br>
+        <span>offsetY:</span>
+        <label>
+            <input type='text' style="width: 100px;" class="ant-input" @change="_onOffsetYChange"/>
+        </label>
+    </div>
+    <div style="margin: 100px;">
+        <so:a_trigger
+                :popup-align="popupAlign"
+                :mouse-enter-delay="0"
+                :popup-placement="placement"
+                :mouse-leave-delay="0.1"
+                :action="action"
+                :builtin-placements="builtinPlacements"
+                :popup-transition-name="transitionName">
+            <div slot="popup" style="border:1px solid red; padding:10px;width: 150px">i am a popup</div>
+            <a slot="trigger" href="javascript:;" style="margin: 20px;" @click.prevent="">trigger</a>
+        </so:a_trigger>
+    </div>
+</div>
+<script>
+    var _onTransitionChange=function () {
+        alert(1);
+    }
+    var vm=soUIDev.bind({
+        scope:'trigger',
+        model:['so:a_trigger','so:a_checkbox']
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>气泡卡片</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Popover</h1>
+    <hr>
+    <p>点击/鼠标移入元素，弹出气泡式的卡片浮层。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。</li>
+        <li>和 Tooltip 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本</h3>
+        <br/>
+        <so:a_popover :title="'标题'">
+            <div slot="overlay">
+                <p>内容</p>
+                <p>内容</p>
+            </div>
+            <so:a_button :type="'primary'">弹出卡片</so:a_button>
+        </so:a_popover>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_popover :title=&quot;'标题'&quot;&gt;
+    &lt;div slot=&quot;overlay&quot;&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;so:a_button :type=&quot;'primary'&quot;&gt;弹出卡片&lt;/so:a_button&gt;
+&lt;/so:a_popover&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>动态展示</h3>
+        <br/>
+        <div style="margin-left: 60px;">
+            <so:a_popover placement="topLeft" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>上左</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="top" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>上边</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="topRight" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>上右</so:a_button>
+            </so:a_popover>
+        </div>
+        <div style="width: 60px; float: left">
+            <so:a_popover placement="leftTop" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>左上</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="left" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>左边</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="leftBottom" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>左下</so:a_button>
+            </so:a_popover>
+        </div>
+        <div style="width: 60px; margin-left: 270px;">
+            <so:a_popover placement="rightTop" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>右上</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="right" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>右边</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="rightBottom" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>右下</so:a_button>
+            </so:a_popover>
+        </div>
+        <div style="margin-left: 60px; cleat: both;">
+            <so:a_popover placement="bottomLeft" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>下左</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="bottom" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>下边</so:a_button>
+            </so:a_popover>
+            <so:a_popover placement="bottomRight" :title="text" trigger="click">
+                <div slot="overlay">
+                    <p>内容</p>
+                    <p>内容</p>
+                </div>
+                <so:a_button>下右</so:a_button>
+            </so:a_popover>
+        </div>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;div style=&quot;margin-left: 60px;&quot;&gt;
+    &lt;so:a_popover placement=&quot;topLeft&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;上左&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;top&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;上边&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;topRight&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;上右&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width: 60px; float: left&quot;&gt;
+    &lt;so:a_popover placement=&quot;leftTop&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;左上&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;left&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;左边&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;leftBottom&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;左下&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+&lt;/div&gt;
+&lt;div style=&quot;width: 60px; margin-left: 270px;&quot;&gt;
+    &lt;so:a_popover placement=&quot;rightTop&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;右上&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;right&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;右边&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;rightBottom&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;右下&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+&lt;/div&gt;
+&lt;div style=&quot;margin-left: 60px; cleat: both;&quot;&gt;
+    &lt;so:a_popover placement=&quot;bottomLeft&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;下左&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;bottom&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;下边&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+    &lt;so:a_popover placement=&quot;bottomRight&quot; :title=&quot;text&quot; trigger=&quot;click&quot;&gt;
+        &lt;div slot=&quot;overlay&quot;&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+            &lt;p&gt;内容&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;so:a_button&gt;下右&lt;/so:a_button&gt;
+    &lt;/so:a_popover&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>动态展示</h3>
+        <br/>
+        <so:a_popover title="标题" trigger="hover">
+            <div slot="overlay">
+                <p>内容</p>
+                <p>内容</p>
+            </div>
+            <so:a_button>移入</so:a_button>
+        </so:a_popover>
+        <so:a_popover title="标题" trigger="focus">
+            <div slot="overlay">
+                <p>内容</p>
+                <p>内容</p>
+            </div>
+            <so:a_button>聚焦</so:a_button>
+        </so:a_popover>
+        <so:a_popover title="标题" trigger="click">
+            <div slot="overlay">
+                <p>内容</p>
+                <p>内容</p>
+            </div>
+            <so:a_button>点击</so:a_button>
+        </so:a_popover>
+        <div class="code-box-word">
+                <pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_popover title=&quot;标题&quot; trigger=&quot;hover&quot;&gt;
+    &lt;div slot=&quot;overlay&quot;&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;so:a_button&gt;移入&lt;/so:a_button&gt;
+&lt;/so:a_popover&gt;
+&lt;so:a_popover title=&quot;标题&quot; trigger=&quot;focus&quot;&gt;
+    &lt;div slot=&quot;overlay&quot;&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;so:a_button&gt;聚焦&lt;/so:a_button&gt;
+&lt;/so:a_popover&gt;
+&lt;so:a_popover title=&quot;标题&quot; trigger=&quot;click&quot;&gt;
+    &lt;div slot=&quot;overlay&quot;&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+        &lt;p&gt;内容&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;so:a_button&gt;点击&lt;/so:a_button&gt;
+&lt;/so:a_popover&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <h3>Progress Bar</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>trigger</td>
+            <td>触发行为，可选 hover/focus/click</td>
+            <td>string</td>
+            <td>hover</td>
+        </tr>
+        <tr>
+            <td>placement</td>
+            <td>气泡框位置，可选 top/left/right/bottom	</td>
+            <td>string</td>
+            <td>top</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>卡片标题</td>
+            <td>React.Element	</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>卡片内容</td>
+            <td>React.Element	</td>
+            <td>无</td>
+        </tr>
+        <tr>
+            <td>overlayClassName</td>
+            <td>浮层的类名</td>
+            <td>string</td>
+            <td>无</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var text="这是标题";
+
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_popover','so:a_button']
+    });
+
+</script>
+</body>
+
+</html>

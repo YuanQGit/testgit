@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>面包屑</title>
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">-->
+    <!--<link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">-->
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Breadcrumb</h1>
+    <hr>
+    <p>显示当前页面在系统层级结构中的位置，并能向上返回。</p>
+    <h2>何时使用</h2>
+    <ul>
+        <li>当系统拥有超过两级以上的层级结构时；</li>
+        <li>当需要告知用户“你在哪里”时；</li>
+        <li>当需要向上导航的功能时。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>基本用法</h3>
+        <br/>
+        <so:a_breadcrumd>
+            <so:a_breadcrumditem>首页</so:a_breadcrumditem>
+            <so:a_breadcrumditem :href="'#'">应用中心</so:a_breadcrumditem>
+            <so:a_breadcrumditem :href="'#'">应用列表</so:a_breadcrumditem>
+            <so:a_breadcrumditem>某应用</so:a_breadcrumditem>
+        </so:a_breadcrumd>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_breadcrumd&gt;
+            &lt;so:a_breadcrumditem&gt;首页&lt;/so:a_breadcrumditem&gt;
+            &lt;so:a_breadcrumditem :href=&quot;&#x27;#&#x27;&quot;&gt;应用中心&lt;/so:a_breadcrumditem&gt;
+            &lt;so:a_breadcrumditem :href=&quot;&#x27;#&#x27;&quot;&gt;应用列表&lt;/so:a_breadcrumditem&gt;
+            &lt;so:a_breadcrumditem&gt;某应用&lt;/so:a_breadcrumditem&gt;
+        &lt;/so:a_breadcrumd&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>不可用</h3>
+        <br/>
+        <so:a_breadcrumd>
+            <so:a_breadcrumditem><so:a_icon :type="'home'"></so:a_icon>首页</so:a_breadcrumditem>
+            <so:a_breadcrumditem><so:a_icon :type="'user'"></so:a_icon>应用列表</so:a_breadcrumditem>
+            <so:a_breadcrumditem>应用</so:a_breadcrumditem>
+        </so:a_breadcrumd>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_breadcrumd&gt;
+    &lt;so:a_breadcrumditem&gt;&lt;so:a_icon :type=&quot;&#x27;home&#x27;&quot;&gt;&lt;/so:a_icon&gt;首页&lt;/so:a_breadcrumditem&gt;
+    &lt;so:a_breadcrumditem&gt;&lt;so:a_icon :type=&quot;&#x27;user&#x27;&quot;&gt;&lt;/so:a_icon&gt;应用列表&lt;/so:a_breadcrumditem&gt;
+    &lt;so:a_breadcrumditem&gt;应用&lt;/so:a_breadcrumditem&gt;
+&lt;/so:a_breadcrumd&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <h3>Breadcrumb</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>router</td>
+            <td>可传入 react-router 的实例</td>
+            <td>Object</td>
+            <td></td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>routes</td>
+            <td>router 的路由栈信息</td>
+            <td>Array</td>
+            <td></td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>params</td>
+            <td>路由的参数</td>
+            <td>Object</td>
+            <td></td>
+            <td>-</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Breadcrumb.Item</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>可选值</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>href</td>
+            <td>链接，如不传则不可点击</td>
+            <td>string</td>
+            <td></td>
+            <td>-</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+   soUIDev.bind({
+        scope:'sooil',
+        model:['so:a_breadcrumd','so:a_breadcrumditem','so:a_icon']
+    })
+</script>
+</body>
+</html>

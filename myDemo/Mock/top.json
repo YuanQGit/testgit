@@ -1,0 +1,19 @@
+{
+  "fields":[
+    {"name":"name", "title":"名称", "type":"", "key":false, "visible":"", "url":"/Render/PTDetail?iiid=<#= id#>"},
+    {"name":"author", "title":"作者", "type":"", "key":false, "visible":"","url":"/Render/PTDetail?iiid=<#= id#>"},
+    {"name":"createddate", "title":"创建日期", "type":"", "key":false, "visible":""}
+  ],
+  "records":[
+    {"id":"11111111", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"22222222", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"33333333", "name":"珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"44444444", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"55555555", "name":"珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"66666666", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"77777777", "name":"珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"88888888", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"99999999", "name":"珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"},
+    {"id":"10101010", "name":"珠江口盆地白云凹陷沉珠江口盆地白云凹陷沉", "author":"李洪博", "createddate":"2016-9-25"}
+  ]
+}

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+
+    <script src="../js/lib/vue.js"></script>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../js/soUIDev.js"></script>
+<style>
+    #el{
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+</style>
+</head>
+<body>
+<div id="el">
+    <so:tabs :data="datasouce" :onTabClick="onTabClick" :onClick="onClick"></so:tabs>
+</div>
+
+
+<script type="text/javascript">
+    var datasouce;
+    $.ajax({
+        url: '../../Mock/tabs.json',
+        type: "get",
+        async: false,
+        dataType: "json",
+        success: function (data) {
+           datasouce=data;
+
+        },
+        error: function () {
+            alert("error");
+        },
+    }); 
+function onTabClick(title) {
+    console.log(title);
+}
+function onClick(title) {
+    console.log(title);
+}
+    soUIDev.bind({
+        scope: "el",
+        model: "so:tabs"
+    });
+</script>
+</body>
+</html>

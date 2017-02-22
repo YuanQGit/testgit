@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="../../Js/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="../../Js/lib/jquery-3.1.1.min.js"></script>
+    <script src="../../Js/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+</head>
+<body>
+<div id="selectst">
+    <so:a_select :defaultValue="'lucy'" :on-change="_handleChange" :size="'large'">
+        <so:a_option :value="'jack'">Jack</so:a_option>
+        <so:a_option :value="'lucy'">Lucy</so:a_option>
+        <so:a_option :value="'disabled'" disabled>Disabled</so:a_option>
+        <so:a_option :value="'okoala'">okoala</so:a_option>
+    </so:a_select>
+</div>
+<script>
+    var _handleChange=function () {
+        alert(1);
+    }
+    soUIDev.bind({
+        scope:'selectst',
+        model:['so:a_select','so:a_option']
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>进度条</title>
+    <script src="../../js/lib/vue.js"></script>
+    <script src="../../js/lib/jquery-2.0.0.min.js"></script>
+    <script src="../../js/soUIDev.js"></script>
+    <link href="../../Js/lib/antd/css/antdDemo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="sooil" class="markdown view">
+    <h1 id="alert">Progress</h1>
+    <hr>
+    <p>展示操作的当前进度。</p>
+    <h2>何时使用</h2>
+    在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
+    <ul>
+        <li>当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；</li>
+        <li>当需要显示一个操作完成的百分比时。</li>
+    </ul>
+    <h2>组件演示</h2>
+    <div class="code-box">
+        <h3>进度条</h3>
+        <br/>
+        <so:a_progressline :percent="30"></so:a_progressline>
+        <so:a_progressline :percent="50" :status="'active'"></so:a_progressline>
+        <so:a_progressline :percent="70" :status="'exception'"></so:a_progressline>
+        <so:a_progressline :percent="100"></so:a_progressline>
+        <so:a_progressline :percent="50" :show-info="false"></so:a_progressline>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_progressline :percent=&quot;30&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;50&quot; :status=&quot;'active'&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;70&quot; :status=&quot;'exception'&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;100&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;50&quot; :show-info=&quot;false&quot;&gt;&lt;/so:a_progressline&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>小型进度条</h3>
+        <br/>
+        <so:a_progressline :percent="30"  :stroke-width="5"></so:a_progressline>
+        <so:a_progressline :percent="50"  :stroke-width="5" status="active"></so:a_progressline>
+        <so:a_progressline :percent="70"  :stroke-width="5" status="exception"></so:a_progressline>
+        <so:a_progressline :percent="100" :stroke-width="5"></so:a_progressline>
+        <div class="code-box-word">
+            <pre>
+                <code class="" style="margin-top: -10px;">
+&lt;so:a_progressline :percent=&quot;30&quot;  :stroke-width=&quot;5&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;50&quot;  :stroke-width=&quot;5&quot; status=&quot;active&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;70&quot;  :stroke-width=&quot;5&quot; status=&quot;exception&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_progressline :percent=&quot;100&quot; :stroke-width=&quot;5&quot;&gt;&lt;/so:a_progressline&gt;                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>进度圈</h3>
+        <br/>
+        <so:a_progresscircle :percent="30"></so:a_progresscircle>
+        <so:a_progresscircle :percent="70" status="exception"></so:a_progresscircle>
+        <so:a_progresscircle :percent="100"></so:a_progresscircle>
+        <div class="code-box-word">
+                <pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_progresscircle :percent=&quot;30&quot;&gt;&lt;/so:a_progresscircle&gt;
+&lt;so:a_progresscircle :percent=&quot;70&quot; status=&quot;exception&quot;&gt;&lt;/so:a_progresscircle&gt;
+&lt;so:a_progresscircle :percent=&quot;100&quot;&gt;&lt;/so:a_progresscircle&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>小型进度圈</h3>
+        <br/>
+        <so:a_progresscircle :percent="30"  :width="80"></so:a_progresscircle>
+        <so:a_progresscircle :percent="70"  :width="80" status="exception"></so:a_progresscircle>
+        <so:a_progresscircle :percent="100" :width="80"></so:a_progresscircle>
+        <div class="code-box-word">
+                <pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_progresscircle :percent=&quot;30&quot;  :width=&quot;80&quot;&gt;&lt;/so:a_progresscircle&gt;
+&lt;so:a_progresscircle :percent=&quot;70&quot;  :width=&quot;80&quot; status=&quot;exception&quot;&gt;&lt;/so:a_progresscircle&gt;
+&lt;so:a_progresscircle :percent=&quot;100&quot; :width=&quot;80&quot;&gt;&lt;/so:a_progresscircle&gt;                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <div class="code-box">
+        <h3>进度圈动态展示</h3>
+        <br/>
+        <so:a_progresscircle :percent="percent"></so:a_progresscircle>
+        <so:a_buttongroup>
+            <so:a_button type="ghost" :onclick="_decline">
+                <so:a_icon type="minus"></so:a_icon>
+            </so:a_button>
+            <so:a_button type="ghost" :onclick="_increase">
+                <so:a_icon type="plus"></so:a_icon>
+            </so:a_button>
+        </so:a_buttongroup>
+        <div class="code-box-word">
+                <pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_progresscircle :percent=&quot;percent&quot;&gt;&lt;/so:a_progresscircle&gt;
+&lt;so:a_buttongroup&gt;
+    &lt;so:a_button type=&quot;ghost&quot; :onclick=&quot;_decline&quot;&gt;
+        &lt;so:a_icon type=&quot;minus&quot;&gt;&lt;/so:a_icon&gt;
+    &lt;/so:a_button&gt;
+    &lt;so:a_button type=&quot;ghost&quot; :onclick=&quot;_increase&quot;&gt;
+        &lt;so:a_icon type=&quot;plus&quot;&gt;&lt;/so:a_icon&gt;
+    &lt;/so:a_button&gt;
+&lt;/so:a_buttongroup&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+
+    <div class="code-box">
+        <h3>动态展示</h3>
+        <br/>
+        <so:a_progressline :percent="percent"></so:a_progressline>
+        <so:a_buttongroup>
+            <so:a_button type="ghost" :onclick="_decline">
+                <so:a_icon type="minus"></so:a_icon>
+            </so:a_button>
+            <so:a_button type="ghost" :onclick="_increase">
+                <so:a_icon type="plus"></so:a_icon>
+            </so:a_button>
+        </so:a_buttongroup>
+        <div class="code-box-word">
+				<pre>
+                    <code class="" style="margin-top: -10px;">
+&lt;so:a_progressline :percent=&quot;percent&quot;&gt;&lt;/so:a_progressline&gt;
+&lt;so:a_buttongroup&gt;
+    &lt;so:a_button type=&quot;ghost&quot; :onclick=&quot;_decline&quot;&gt;
+        &lt;so:a_icon type=&quot;minus&quot;&gt;&lt;/so:a_icon&gt;
+    &lt;/so:a_button&gt;
+    &lt;so:a_button type=&quot;ghost&quot; :onclick=&quot;_increase&quot;&gt;
+        &lt;so:a_icon type=&quot;plus&quot;&gt;&lt;/so:a_icon&gt;
+    &lt;/so:a_button&gt;
+&lt;/so:a_buttongroup&gt;
+                    </code>
+                </pre>
+        </div>
+    </div>
+
+    <h2 id="api">API</h2>
+    <h3>Progress Bar</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>percent</td>
+            <td>百分比</td>
+            <td>number</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>状态，有两个值normal、exception、active三种状态</td>
+            <td>string</td>
+            <td>normal</td>
+        </tr>
+        <tr>
+            <td>strokeWidth</td>
+            <td>进度条线的宽度，单位是px</td>
+            <td>number</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>showInfo</td>
+            <td>是否显示进度数值和状态图标</td>
+            <td>bool</td>
+            <td>true</td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Progress Circle</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>参数</th>
+            <th>说明</th>
+            <th>类型</th>
+            <th>默认值</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>percent</td>
+            <td>百分比</td>
+            <td>number</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>状态，有两个值normal、exception</td>
+            <td>string</td>
+            <td>normal</td>
+        </tr>
+        <tr>
+            <td>strokeWidth</td>
+            <td>进度条线的宽度，单位是进度条画布宽度的百分比</td>
+            <td>number</td>
+            <td>1</td>
+        </tr>
+         <tr>
+            <td>width</td>
+            <td>必填，进度条画布宽度，单位px。这里没有提供height属性设置，Line型高度就是strokeWidth，Circle型高度等于width</td>
+            <td>number</td>
+            <td>null</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript">
+var percent=0;
+var _decline=function () {
+    if(this.percent>0){
+        this.percent-=10;
+    }
+}
+var _increase=function () {
+    if(this.percent<100){
+        this.percent+=10;
+    }
+}
+    soUIDev.bind({
+        scope:"sooil",
+        model:['so:a_progressline','so:a_progresscircle','so:a_buttongroup','so:a_button','so:a_icon']
+    });
+
+</script>
+</body>
+
+</html>
